@@ -1,13 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react/cjs/react.development";
 import { dbService } from "fbase";
-import Nweet from "components/Tips";
 
-const Home = ({ userObj }) => {
+const store = ({ userObj }) => {
   return (
     <div>
-      <div>Here is Home</div>
+      <ul>
+        <li>hihi</li>
+        <li>hihihi</li>
+        <li>lili</li>
+      </ul>
     </div>
   );
 };
-export default Home;
+export default store;
