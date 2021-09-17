@@ -12,6 +12,8 @@ import Navigation from "./Navigation";
 import Store from "../routes/Store";
 import Mission from "../routes/Mission";
 import Coummunity from "../routes/Community";
+import Randing from "../routes/Landing";
+import Landing from "../routes/Landing";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
@@ -40,9 +42,12 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
         ) : (
           <>
             <Route exact path="/">
-              <Auth />
+              <Landing />
             </Route>
             <Redirect from="*" to="/" />
+            <Route exact path="/auth">
+              <Auth />
+            </Route>
           </>
         )}
       </Switch>
