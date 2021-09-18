@@ -12,8 +12,10 @@ import Navigation from "./Navigation";
 import Store from "../routes/Store";
 import Mission from "../routes/Mission";
 import Coummunity from "../routes/Community";
-import Randing from "../routes/Landing";
 import Landing from "../routes/Landing";
+import WriteTip from "routes/WriteTips";
+import AssignItem from "routes/AssignItem";
+import Master from "routes/Master";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
@@ -36,6 +38,15 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             </Route>
             <Route exact path="/community">
               <Coummunity userObj={userObj} />
+            </Route>
+            <Route exact path="/community/write">
+              <WriteTip userObj={userObj} />
+            </Route>
+            <Route exact path="/store/item">
+              <AssignItem userObj={userObj} />
+            </Route>
+            <Route exact path="/master">
+              <Master userObj={userObj} />
             </Route>
             <Redirect from="*" to="/" />
           </>

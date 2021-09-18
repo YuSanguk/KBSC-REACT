@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  Link,
-} from "react-router-dom";
-import Auth from "./Auth";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
