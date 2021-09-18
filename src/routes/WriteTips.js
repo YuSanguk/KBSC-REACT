@@ -1,13 +1,12 @@
-import react from "react";
+import React from "react";
 import { useState, useEffect } from "react/cjs/react.development";
-import { Redirect } from "react-router-dom";
 import { dbService } from "fbase";
 
 const WriteTip = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
   const onSubmit = async event => {
-    if (nweet == "") {
+    if (nweet === "") {
     } else {
       event.preventDefault();
       await dbService.collection("tips").add({
