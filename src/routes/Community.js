@@ -1,6 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react/cjs/react.development";
-import { dbService } from "fbase";
 import { Link } from "react-router-dom";
 import DisplayTips from "./DisplayTips";
 

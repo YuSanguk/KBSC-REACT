@@ -1,11 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react/cjs/react.development";
+import { useState } from "react/cjs/react.development";
 import { dbService } from "fbase";
 
 const AssignItem = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
   const onSubmit = async event => {
-    if (nweet == "") {
+    if (nweet === "") {
     } else {
       event.preventDefault();
       await dbService.collection("StoreItems").add({
