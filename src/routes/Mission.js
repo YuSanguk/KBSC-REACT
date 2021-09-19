@@ -50,6 +50,8 @@ const Mission = ({ userObj }) => {
             <DisplayMission mission={item} />
           ))}
         </ul>
+        <p>Evaluating</p>
+        <p>End</p>
       </div>
     </>
   );

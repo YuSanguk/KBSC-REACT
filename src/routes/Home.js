@@ -6,7 +6,7 @@ const Home = ({ userObj }) => {
     let list = [];
     let value = 0;
     while (list.length < 7) {
-      value = Math.round(Math.random() * 30 + 1);
+      value = Math.round(Math.random() * 33 + 1);
       if (list.includes(value) === false) {
         list.push(value);
       }
