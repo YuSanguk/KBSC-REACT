@@ -1,7 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react/cjs/react.development";
 import { dbService } from "fbase";
-import Nweet from "components/Tips";
 
 const Home = ({ userObj }) => {
   const create_code = () => {
@@ -18,6 +16,7 @@ const Home = ({ userObj }) => {
     });
     return list;
   };
+
   // DB에 USERID를 검색하고, 없으면 문서 생성
   const usersRef = dbService.collection("users").doc(userObj.uid);
 
@@ -33,7 +32,6 @@ const Home = ({ userObj }) => {
       }); // create the document
     }
   });
-
   return (
     <div>
       <div>Here is Home</div>

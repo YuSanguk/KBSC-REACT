@@ -6,10 +6,10 @@ import DisplayTips from "./DisplayTips";
 
 const Community = ({ userObj }) => {
   return (
-    <div>
+    <>
       <Link to="/community/write">Write</Link>
       <DisplayTips userObj={userObj} />
-    </div>
+    </>
   );
 };
 

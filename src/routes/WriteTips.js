@@ -1,10 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react/cjs/react.development";
+import { useState } from "react/cjs/react.development";
 import { dbService } from "fbase";
 
 const WriteTip = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
-  const [nweets, setNweets] = useState([]);
   const onSubmit = async event => {
     if (nweet === "") {
     } else {
@@ -17,7 +16,7 @@ const WriteTip = ({ userObj }) => {
         creatorId: userObj.uid,
       });
       setNweet("");
-      window.location.assign("");
+      //      window.location.assign("");
     }
   };
   const onChange = event => {

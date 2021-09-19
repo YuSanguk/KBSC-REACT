@@ -1,5 +1,5 @@
 import { dbService } from "fbase";
-import react, { useState } from "react";
+import React, { useState } from "react";
 
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);

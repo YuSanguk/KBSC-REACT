@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { useState, useEffect } from "react/cjs/react.development";
 import { dbService } from "fbase";
 
@@ -8,7 +8,9 @@ const AssignItem = ({ userObj }) => {
     if (nweet == "") {
     } else {
       event.preventDefault();
-      await dbService.collection("StoreItems").doc("item1").set({
+      await dbService.collection("StoreItems").add({
+        img: "img_path",
+        title: "title_test",
         text: nweet,
         createdAt: Date.now(), // Date.now뿐만 아니라 날짜와 시간도 만들어서 넣어야할듯
         //(아니면 Date.now를 기반으로 올린 시간과 날자를 찾는 함수를 만들어야함)

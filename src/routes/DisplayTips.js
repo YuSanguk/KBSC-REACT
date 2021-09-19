@@ -4,7 +4,6 @@ import { dbService } from "fbase";
 import Nweet from "components/Tips";
 
 const DisplayTips = ({ userObj }) => {
-  const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
   useEffect(() => {
     dbService.collection("tips").onSnapshot(snapshot => {
