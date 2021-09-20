@@ -27,7 +27,7 @@ function App() {
       ) : (
         "Initializing"
       )}
-      <footer>&copy; {new Date().getFullYear()} CLEAN</footer>
+      {/* <footer>&copy; {new Date().getFullYear()} CLEAN</footer> */}
     </>
   );
 }

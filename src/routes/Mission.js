@@ -47,7 +47,7 @@ const Mission = ({ userObj }) => {
         <p>Misson</p>
         <ul>
           {MissionList.map(item => (
-            <DisplayMission mission={item} />
+            <DisplayMission key={item} mission={item} />
           ))}
         </ul>
         <p>Evaluating</p>
