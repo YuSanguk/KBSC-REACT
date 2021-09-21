@@ -3,7 +3,7 @@ import { dbService } from "fbase";
 import { useState, useEffect } from "react/cjs/react.development";
 import DisplayMission from "components/DisplayMissions";
 
-const Mission = ({ userObj }) => {
+const Mission = ({ userObj, isLoggedIn }) => {
   let UserMissionList = useState(""); // 유저 별 미션 코드 번호
   let Missions = useState(""); // 전체 미션 목록
   let MissionList = []; // 유저가 해야하는 미션

@@ -17,6 +17,7 @@ import WriteTip from "routes/WriteTips";
 import AssignItem from "routes/AssignItem";
 import Master from "routes/Master";
 import AssignVerify from "routes/AssignVerify";
+import Modal from "./Modal";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
@@ -38,7 +39,7 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
               <Mission userObj={userObj} />
             </Route>
             <Route exact path="/community">
-              <Coummunity userObj={userObj} />
+              <Coummunity userObj={userObj} isLoggedIn={isLoggedIn} />
             </Route>
             <Route exact path="/community/write">
               <WriteTip userObj={userObj} />
@@ -52,7 +53,9 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             <Route exact path="/mission/veirfy">
               <AssignVerify />
             </Route>
-
+            <Route path="/modal">
+              <Modal />
+            </Route>
             <Redirect from="*" to="/" />
           </>
         ) : (
