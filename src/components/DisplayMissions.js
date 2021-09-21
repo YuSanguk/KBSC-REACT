@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const DisplayMission = ({ missionCode, missions, userObj, userDb }) => {
+const DisplayMission = ({ missionCode, missions, userDb }) => {
   let process = "아직아무것도";
   // (userDb.checkMission)
   // userDb.clearMission
@@ -13,6 +14,8 @@ const DisplayMission = ({ missionCode, missions, userObj, userDb }) => {
     process = "완료";
   }
 
+  const pos = "/verify?";
+
   return (
     <>
       <div>
@@ -20,7 +23,7 @@ const DisplayMission = ({ missionCode, missions, userObj, userDb }) => {
           <p>{missions[missionCode]}</p>
           {process === "아직아무것도" ? (
             <>
-              <button>a</button>
+              <Link to={pos + "id=" + missionCode}>인증하기</Link>
             </>
           ) : (
             <p>{process}</p>

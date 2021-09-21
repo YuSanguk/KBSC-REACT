@@ -4,10 +4,11 @@ import { dbService, storageService } from "fbase";
 import { v4 as uuidv4 } from "uuid";
 
 const WriteTip = ({ userObj }) => {
+  const [tipTitle, setTipTitle] = useState("");
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
   const onSubmit = async event => {
-    if (nweet === "") {
+    if (nweet === "" || tipTitle === "") {
     } else {
       event.preventDefault();
       let attachmentUrl = "";
@@ -18,7 +19,7 @@ const WriteTip = ({ userObj }) => {
       }
 
       const nweetObj = {
-        title: "title",
+        title: tipTitle,
         text: nweet,
         createdAt: Date.now(), // Date.now뿐만 아니라 날짜와 시간도 만들어서 넣어야할듯
         //(아니면 Date.now를 기반으로 올린 시간과 날자를 찾는 함수를 만들어야함)
@@ -38,6 +39,13 @@ const WriteTip = ({ userObj }) => {
       target: { value },
     } = event;
     setNweet(value);
+  };
+
+  const onChangeTitle = event => {
+    const {
+      target: { value },
+    } = event;
+    setTipTitle(value);
   };
 
   const onImageChange = event => {
@@ -60,6 +68,13 @@ const WriteTip = ({ userObj }) => {
   return (
     <form onSubmit={onSubmit}>
       <input
+        value={tipTitle}
+        onChange={onChangeTitle}
+        type="text"
+        placeholder="Title"
+        maxLength={120}
+      />
+      <input
         value={nweet}
         onChange={onChange}
         type="text"
@@ -70,7 +85,7 @@ const WriteTip = ({ userObj }) => {
       <input type="submit" value="Up" />
       {attachment && (
         <div>
-          <img src={attachment} width="50px" height="50px" />
+          <img src={attachment} alt="write" width="50px" height="50px" />
           <button onClick={OnClearPhoto}>Clear</button>
         </div>
       )}

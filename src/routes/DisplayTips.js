@@ -19,7 +19,7 @@ const DisplayTips = ({ userObj, isLoggedIn }) => {
       });
   }, []);
 
-  let pos = "/modal?";
+  const pos = "/modal?";
 
   return (
     <>

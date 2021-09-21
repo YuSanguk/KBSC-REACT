@@ -50,8 +50,8 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             <Route exact path="/master">
               <Master userObj={userObj} />
             </Route>
-            <Route exact path="/mission/veirfy">
-              <AssignVerify />
+            <Route path="/verify">
+              <AssignVerify userObj={userObj} />
             </Route>
             <Route path="/modal">
               <Modal />

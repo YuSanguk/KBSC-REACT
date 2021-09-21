@@ -43,7 +43,7 @@ const Modal = () => {
             <h4>{nweets[pos].title}</h4>
             <p>{nweets[pos].text}</p>
             {nweets[pos].attachmentUrl !== "" && (
-              <img src={nweets[pos].attachmentUrl}></img>
+              <img alt="modal" src={nweets[pos].attachmentUrl}></img>
             )}
           </>
         )}
