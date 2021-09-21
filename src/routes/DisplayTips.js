@@ -27,7 +27,8 @@ const DisplayTips = ({ userObj }) => {
       d[i] = item[i];
     }
     modalMode = !modalMode;
-    if (d.id == modalObj.id) {
+    if (d.id === modalObj.id && modalObj.title === null) {
+    } else if (d.id === modalObj.id) {
       d.title = null;
       d.text = null;
       d.attachmentUrl = null;
@@ -37,7 +38,7 @@ const DisplayTips = ({ userObj }) => {
 
   return (
     <>
-      {modalMode && <Modal itemObj={modalObj} />}
+      {modalMode ? <Modal itemObj={modalObj} /> : <> </>}
       <div>
         <ul>
           {nweets.map(nweet => (

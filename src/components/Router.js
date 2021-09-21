@@ -16,6 +16,7 @@ import Landing from "../routes/Landing";
 import WriteTip from "routes/WriteTips";
 import AssignItem from "routes/AssignItem";
 import Master from "routes/Master";
+import AssignVerify from "routes/AssignVerify";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
@@ -48,6 +49,10 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             <Route exact path="/master">
               <Master userObj={userObj} />
             </Route>
+            <Route exact path="/mission/veirfy">
+              <AssignVerify />
+            </Route>
+
             <Redirect from="*" to="/" />
           </>
         ) : (
