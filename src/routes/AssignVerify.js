@@ -1,5 +1,5 @@
 import React from "react";
-import { dbService, firebaseInstance, storageService } from "fbase";
+import { dbService, storageService } from "fbase";
 import { useState, useEffect } from "react/cjs/react.development";
 import { v4 as uuidv4 } from "uuid";
 
@@ -42,7 +42,8 @@ const AssignVerify = ({ userObj }) => {
     for (let i = 0; i < checkList.length; i++) {
       if (checkList[i].id === userObj.uid) {
         MyData = checkList[i].checkMission;
-        MyData.push(Number(MissionCode) + 1);
+        if (MyData.includes(Number(MissionCode) + 1) === false)
+          MyData.push(Number(MissionCode) + 1);
         break;
       }
     }
