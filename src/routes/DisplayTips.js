@@ -21,20 +21,48 @@ const DisplayTips = ({ userObj, isLoggedIn }) => {
 
   const pos = "/modal?";
 
+  const [displayMode, setDisplayMode] = useState(false);
+  const toggleDisplay = async () => {
+    setDisplayMode(prev => !prev);
+  };
+
   return (
     <>
       <div>
+        <button onClick={toggleDisplay}>
+          {displayMode ? "내 상품" : "모든 상품"}
+        </button>
         <ul>
           {nweets.map(nweet => (
-            <li key={nweet.id}>
-              <Link to={pos + "id=" + nweet.id}>
-                <Nweet
-                  key={nweet.id}
-                  nweetObj={nweet}
-                  isOwner={nweet.creatorId === userObj.uid}
-                />
-              </Link>
-            </li>
+            <>
+              {displayMode ? (
+                <>
+                  {nweet.creatorId === userObj.uid && (
+                    <li key={nweet.id}>
+                      <Link to={pos + "id=" + nweet.id}>
+                        <Nweet
+                          key={nweet.id}
+                          nweetObj={nweet}
+                          isOwner={nweet.creatorId === userObj.uid}
+                        />
+                      </Link>
+                    </li>
+                  )}
+                </>
+              ) : (
+                <>
+                  <li key={nweet.id}>
+                    <Link to={pos + "id=" + nweet.id}>
+                      <Nweet
+                        key={nweet.id}
+                        nweetObj={nweet}
+                        isOwner={nweet.creatorId === userObj.uid}
+                      />
+                    </Link>
+                  </li>
+                </>
+              )}
+            </>
           ))}
         </ul>
       </div>

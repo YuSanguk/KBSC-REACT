@@ -58,12 +58,11 @@ const Store = ({ userObj }) => {
                 <>
                   {item.creatorId === userObj.uid && (
                     <Items key={item.id} itemObj={item} />
-                  )}{" "}
+                  )}
                 </>
               ) : (
                 <>
-                  {" "}
-                  <Items key={item.id} itemObj={item} />{" "}
+                  <Items key={item.id} itemObj={item} />
                 </>
               )}
             </>
