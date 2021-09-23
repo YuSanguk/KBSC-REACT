@@ -38,14 +38,35 @@ const Store = ({ userObj }) => {
     }
   } catch (e) {}
 
+  const [displayMode, setDisplayMode] = useState(false);
+  const toggleDisplay = async () => {
+    setDisplayMode(prev => !prev);
+  };
+
   return (
     <>
       <p>상품등록권 : {userDb.LimitAssignItem} / 3 </p>
       <Link to="/store/item">Assign</Link>
       <div>
+        <button onClick={toggleDisplay}>
+          {displayMode ? "내 상품" : "모든 상품"}
+        </button>
         <ul>
           {items.map(item => (
-            <Items key={item.id} itemObj={item} />
+            <>
+              {displayMode ? (
+                <>
+                  {item.creatorId === userObj.uid && (
+                    <Items key={item.id} itemObj={item} />
+                  )}{" "}
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <Items key={item.id} itemObj={item} />{" "}
+                </>
+              )}
+            </>
           ))}
         </ul>
       </div>

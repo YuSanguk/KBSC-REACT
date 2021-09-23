@@ -74,7 +74,7 @@ const Mission = ({ userObj }) => {
         const people = CheckingData[i].people;
         const sum = CheckingData[i].sum;
 
-        if (userDb.recentlyEdit + 10 <= Date.now()) {
+        if (userDb.recentlyEdit + 1500 <= Date.now()) {
           if (14 <= sum && people >= 3) {
             // 성공
             const success = async () => {
