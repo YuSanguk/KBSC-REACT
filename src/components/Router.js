@@ -18,6 +18,8 @@ import AssignItem from "routes/AssignItem";
 import Master from "routes/Master";
 import AssignVerify from "routes/AssignVerify";
 import Modal from "./Modal";
+import StoreModal from "./StoreModal";
+import EvalutePage from "routes/EvaluteMission";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
@@ -55,6 +57,12 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             </Route>
             <Route path="/modal">
               <Modal />
+            </Route>
+            <Route path="/storeitem">
+              <StoreModal />
+            </Route>
+            <Route path="/evalute">
+              <EvalutePage userObj={userObj} />
             </Route>
             <Redirect from="*" to="/" />
           </>

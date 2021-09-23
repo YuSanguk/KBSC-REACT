@@ -72,7 +72,7 @@ const WriteTip = ({ userObj }) => {
         onChange={onChangeTitle}
         type="text"
         placeholder="Title"
-        maxLength={120}
+        maxLength={30}
       />
       <input
         value={nweet}
