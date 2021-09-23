@@ -86,9 +86,12 @@ const Mission = ({ userObj }) => {
                 j--;
               }
             }
+            let point = Number(userDb.point);
+            point = Number(point) + 50;
             await dbService.doc(`users/${userObj.uid}`).update({
               checkMission: checkMission,
               clearMission: clearArray,
+              point: point,
             });
             await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
           };
