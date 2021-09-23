@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CheckingMission = ({ mission }) => {
-  const pos = "/evalute" + "?id=" + mission.id;
+  const pos = "/evalute?id=" + mission.id;
   return (
     <>
       <li>

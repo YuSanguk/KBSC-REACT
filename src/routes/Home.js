@@ -33,6 +33,7 @@ const Home = ({ userObj }) => {
         AssignItem: 1,
         LimitAssignItem: 3,
         missionList: missionList,
+        ReRoll: 2,
       }); // create the document
     }
   });

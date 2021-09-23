@@ -127,10 +127,47 @@ const Mission = ({ userObj }) => {
     }
   } catch (e) {}
 
+  let LimitAssignItem = Number(userDb.LimitAssignItem);
+  const reroll = async () => {
+    if (LimitAssignItem > 0) {
+      const main_arr = userDb.missionList;
+      const check_arr = userDb.checkMission;
+      const clear_arr = userDb.clearMission;
+      const failer_arr = userDb.failedMission;
+      let main2_arr = [...check_arr, ...clear_arr, ...failer_arr];
+
+      let list = [];
+      let value = 0;
+      while (list.length < main_arr.length - main2_arr.length) {
+        value = Math.round(Math.random() * 33 + 1);
+        if (
+          list.includes(value) === false &&
+          main2_arr.includes(value) === false
+        ) {
+          list.push(value);
+        }
+      }
+
+      let main3_arr = [...list, ...main2_arr];
+      main3_arr.sort(function (a, b) {
+        return a - b;
+      });
+
+      await dbService.doc(`users/${userObj.uid}`).update({
+        missionList: main3_arr,
+        LimitAssignItem: LimitAssignItem - 1,
+      });
+    } else {
+      alert("리롤권이 없습니다");
+    }
+  };
+
   return (
     <>
       <div>
         <p>Misson</p>
+        <p>Mission Re:Roll : {userDb.LimitAssignItem} / 2</p>
+        <button onClick={reroll}>ReRoll</button>
         <ul>
           {userCode.map(item => (
             <DisplayMission
