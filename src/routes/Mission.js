@@ -70,6 +70,48 @@ const Mission = ({ userObj }) => {
         CheckingData[i].who.includes(userObj.uid) === false
       ) {
         DisplayData.push(CheckingData[i]);
+      } else if (CheckingData[i].creatorId === userObj.uid) {
+        const people = CheckingData[i].people;
+        const sum = CheckingData[i].sum;
+        if (14 <= sum && people >= 3) {
+          // 성공
+          const success = async () => {
+            const Code = Number(CheckingData[i].missionCode) + 1;
+            let clearArray = userDb.clearMission;
+            let checkMission = userDb.checkMission;
+            if (clearArray.includes(Code) === false) clearArray.push(Code);
+            for (let j = 0; j < checkMission.length; j++) {
+              if (checkMission[j] === Code) {
+                checkMission.splice(j, 1);
+                j--;
+              }
+            }
+            await dbService.doc(`users/${userObj.uid}`).update({
+              checkMission: checkMission,
+              clearMission: clearArray,
+            });
+            await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
+          };
+          success();
+        } else if (14 > sum && people >= 3) {
+          // 실패
+          const failed = async () => {
+            const Code = Number(CheckingData[i].missionCode) + 1;
+            let failedArray = userDb.failedMission;
+            let checkMission = userDb.checkMission;
+            if (failedArray.includes(Code) === false) failedArray.push(Code);
+            for (let j = 0; j < checkMission.length; j++) {
+              checkMission.splice(j, 1);
+              j--;
+            }
+            await dbService.doc(`users/${userObj.uid}`).update({
+              checkMission: checkMission,
+              failedMission: failedArray,
+            });
+            await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
+          };
+          failed();
+        }
       }
     }
   } catch (e) {}
