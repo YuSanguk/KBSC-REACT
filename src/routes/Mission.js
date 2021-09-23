@@ -1,5 +1,5 @@
 import React from "react";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 import { useState, useEffect } from "react/cjs/react.development";
 import DisplayMission from "components/DisplayMissions";
 import CheckingMission from "components/DisplayCheckingMissions";
@@ -93,6 +93,10 @@ const Mission = ({ userObj }) => {
               clearMission: clearArray,
               point: point,
             });
+
+            await storageService
+              .refFromURL(CheckingData[i].attachmentUrl)
+              .delete();
             await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
           };
           success();
@@ -111,6 +115,10 @@ const Mission = ({ userObj }) => {
               checkMission: checkMission,
               failedMission: failedArray,
             });
+
+            await storageService
+              .refFromURL(CheckingData[i].attachmentUrl)
+              .delete();
             await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
           };
           failed();
