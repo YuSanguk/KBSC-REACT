@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { dbService } from "fbase";
 import { useState, useEffect } from "react/cjs/react.development";
 
-const EvalutePage = ({ userobj }) => {
+const EvalutePage = ({ userObj }) => {
   const id = window.location.href.split("?id=")[1];
   let data;
   const [datas, setDatas] = useState([]);
@@ -17,10 +17,13 @@ const EvalutePage = ({ userobj }) => {
     });
   }, []);
 
+  let worked = false;
+
   try {
     for (let i = 0; i < datas.length; i++) {
       if (datas[i].id === id) {
         data = datas[i];
+        worked = true;
         break;
       }
     }
@@ -46,11 +49,32 @@ const EvalutePage = ({ userobj }) => {
     setNum(value);
   };
 
+  const onSubmit = async event => {
+    if (num !== "" && num >= 0 && num < 10) {
+      event.preventDefault();
+      const people = Number(data.people) + Number(1);
+      const sum = Number(data.sum) + Number(num);
+      let who = data.who;
+      who.push(userObj.uid);
+      await dbService.doc(`Checking/${data.id}`).update({
+        people: people,
+        sum: sum,
+        who: who,
+      });
+      setNum(0);
+      window.location.assign("");
+    } else {
+      setNum(0);
+      alert("숫자를 입력해주세요");
+    }
+  };
+
   return (
     <>
       <Link to="/mission">back</Link>
-      <div>{id}</div>
-      <form>
+      {worked && <div>{data.text}</div>}
+
+      <form onSubmit={onSubmit}>
         <input
           type="text"
           value={num}

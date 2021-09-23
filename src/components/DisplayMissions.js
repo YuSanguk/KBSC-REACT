@@ -12,6 +12,8 @@ const DisplayMission = ({ missionCode, missions, userDb }) => {
     process = "검토중";
   } else if (userDb.clearMission.includes(missionCode + 1)) {
     process = "완료";
+  } else if (userDb.failedMission.includes(missionCode + 1)) {
+    process = "실패";
   }
 
   const pos = "/verify?";

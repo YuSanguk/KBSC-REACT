@@ -65,7 +65,10 @@ const Mission = ({ userObj }) => {
 
   try {
     for (let i = 0; i < CheckingData.length; i++) {
-      if (CheckingData[i].creatorId !== userObj.uid) {
+      if (
+        CheckingData[i].creatorId !== userObj.uid &&
+        CheckingData[i].who.includes(userObj.uid) === false
+      ) {
         DisplayData.push(CheckingData[i]);
       }
     }

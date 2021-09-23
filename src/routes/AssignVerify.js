@@ -98,6 +98,7 @@ const AssignVerify = ({ userObj }) => {
         creatorId: userObj.uid,
         missionCode: MissionCode,
         attachmentUrl,
+        who: [],
       };
       await dbService.collection("Checking").add(nweetObj);
       await dbService.doc(`users/${userObj.uid}`).update({

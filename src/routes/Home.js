@@ -28,6 +28,7 @@ const Home = ({ userObj }) => {
       usersRef.set({
         point: 0,
         clearMission: [],
+        failedMission: [],
         checkMission: [],
         missionList: missionList,
       }); // create the document

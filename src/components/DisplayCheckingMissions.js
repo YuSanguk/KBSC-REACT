@@ -6,7 +6,7 @@ const CheckingMission = ({ mission }) => {
   return (
     <>
       <li>
-        <Link to={pos}>{mission.missionCode}</Link>
+        <Link to={pos}>미션 평가하기</Link>
       </li>
     </>
   );
