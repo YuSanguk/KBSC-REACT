@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
+import { useState, useEffect } from "react/cjs/react.development";
 import { dbService, storageService } from "fbase";
 import { v4 as uuidv4 } from "uuid";
 
@@ -7,6 +7,33 @@ const AssignItem = ({ userObj }) => {
   const [itemTitle, setItemTitle] = useState("");
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
+
+  let userDb = [];
+  const [userDetail, SetUserDetail] = useState([]);
+
+  useEffect(() => {
+    dbService.collection("users").onSnapshot(snapshot => {
+      const userArray = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      SetUserDetail(userArray);
+    });
+  }, []);
+
+  try {
+    for (let i = 0; i < userDetail.length; i++) {
+      if (userDetail[i].id === userObj.uid) {
+        userDb = userDetail[i];
+        break;
+      }
+    }
+  } catch (e) {}
+  if (userDb.LimitAssignItem <= 0) {
+    alert("상품 등록권이 없습니다!");
+    window.location.assign("");
+  }
+
   const onSubmit = async event => {
     if (nweet === "" || itemTitle === "") {
     } else {
@@ -28,6 +55,11 @@ const AssignItem = ({ userObj }) => {
         attachmentUrl,
       };
       await dbService.collection("StoreItems").add(nweetObj);
+
+      const LimitAssignItemValue = Number(userDb.LimitAssignItem) - 1;
+      await dbService.doc(`users/${userObj.uid}`).update({
+        LimitAssignItem: LimitAssignItemValue,
+      });
       setNweet("");
       setAttachment("");
       window.location.assign("");

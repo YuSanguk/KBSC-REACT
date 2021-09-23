@@ -30,6 +30,8 @@ const Home = ({ userObj }) => {
         clearMission: [],
         failedMission: [],
         checkMission: [],
+        AssignItem: 1,
+        LimitAssignItem: 3,
         missionList: missionList,
       }); // create the document
     }

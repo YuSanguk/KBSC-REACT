@@ -16,8 +16,31 @@ const Store = ({ userObj }) => {
     });
   }, []);
 
+  let userDb = [];
+  const [userDetail, SetUserDetail] = useState([]);
+
+  useEffect(() => {
+    dbService.collection("users").onSnapshot(snapshot => {
+      const userArray = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      SetUserDetail(userArray);
+    });
+  }, []);
+
+  try {
+    for (let i = 0; i < userDetail.length; i++) {
+      if (userDetail[i].id === userObj.uid) {
+        userDb = userDetail[i];
+        break;
+      }
+    }
+  } catch (e) {}
+
   return (
     <>
+      <p>상품등록권 : {userDb.LimitAssignItem} / 3 </p>
       <Link to="/store/item">Assign</Link>
       <div>
         <ul>
