@@ -30,10 +30,11 @@ const Home = ({ userObj }) => {
         clearMission: [],
         failedMission: [],
         checkMission: [],
-        AssignItem: 1,
-        LimitAssignItem: 3,
+        LimitAssignItem: 3, // 일주일에 등록 할 수 있는 상품 수
         missionList: missionList,
-        ReRoll: 2,
+        recentlyEdit: Date.now(),
+        createdAt: Date.now(),
+        ReRoll: 2, // 미션 리롤 수
       }); // create the document
     }
   });

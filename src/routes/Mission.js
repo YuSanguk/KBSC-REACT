@@ -73,63 +73,72 @@ const Mission = ({ userObj }) => {
       } else if (CheckingData[i].creatorId === userObj.uid) {
         const people = CheckingData[i].people;
         const sum = CheckingData[i].sum;
-        if (14 <= sum && people >= 3) {
-          // 성공
-          const success = async () => {
-            const Code = Number(CheckingData[i].missionCode) + 1;
-            let clearArray = userDb.clearMission;
-            let checkMission = userDb.checkMission;
-            if (clearArray.includes(Code) === false) clearArray.push(Code);
-            for (let j = 0; j < checkMission.length; j++) {
-              if (checkMission[j] === Code) {
+
+        if (userDb.recentlyEdit + 10 <= Date.now()) {
+          if (14 <= sum && people >= 3) {
+            // 성공
+            const success = async () => {
+              const Code = Number(CheckingData[i].missionCode) + 1;
+              let clearArray = userDb.clearMission;
+              let checkMission = userDb.checkMission;
+              if (clearArray.includes(Code) === false) clearArray.push(Code);
+              for (let j = 0; j < checkMission.length; j++) {
+                if (checkMission[j] === Code) {
+                  checkMission.splice(j, 1);
+                  j--;
+                }
+              }
+
+              try {
+                let point = Number(userDb.point);
+                await dbService.doc(`users/${userObj.uid}`).update({
+                  checkMission: checkMission,
+                  clearMission: clearArray,
+                  point: point + 50, // 포인트가 여러번 더해 짐!!
+                  recentlyEdit: Date.now(),
+                });
+
+                await storageService
+                  .refFromURL(CheckingData[i].attachmentUrl)
+                  .delete();
+                await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
+              } catch (e) {}
+            };
+            success();
+          } else if (14 > sum && people >= 3) {
+            // 실패
+            const failed = async () => {
+              const Code = Number(CheckingData[i].missionCode) + 1;
+              let failedArray = userDb.failedMission;
+              let checkMission = userDb.checkMission;
+              if (failedArray.includes(Code) === false) failedArray.push(Code);
+              for (let j = 0; j < checkMission.length; j++) {
                 checkMission.splice(j, 1);
                 j--;
               }
-            }
-            let point = Number(userDb.point);
-            point = Number(point) + 50;
-            await dbService.doc(`users/${userObj.uid}`).update({
-              checkMission: checkMission,
-              clearMission: clearArray,
-              point: point,
-            });
 
-            await storageService
-              .refFromURL(CheckingData[i].attachmentUrl)
-              .delete();
-            await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
-          };
-          success();
-        } else if (14 > sum && people >= 3) {
-          // 실패
-          const failed = async () => {
-            const Code = Number(CheckingData[i].missionCode) + 1;
-            let failedArray = userDb.failedMission;
-            let checkMission = userDb.checkMission;
-            if (failedArray.includes(Code) === false) failedArray.push(Code);
-            for (let j = 0; j < checkMission.length; j++) {
-              checkMission.splice(j, 1);
-              j--;
-            }
-            await dbService.doc(`users/${userObj.uid}`).update({
-              checkMission: checkMission,
-              failedMission: failedArray,
-            });
-
-            await storageService
-              .refFromURL(CheckingData[i].attachmentUrl)
-              .delete();
-            await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
-          };
-          failed();
+              try {
+                await dbService.doc(`users/${userObj.uid}`).update({
+                  checkMission: checkMission,
+                  failedMission: failedArray,
+                  recentlyEdit: Date.now(),
+                });
+                await storageService
+                  .refFromURL(CheckingData[i].attachmentUrl)
+                  .delete();
+                await dbService.doc(`Checking/${CheckingData[i].id}`).delete();
+              } catch (e) {}
+            };
+            failed();
+          }
         }
       }
     }
   } catch (e) {}
 
-  let LimitAssignItem = Number(userDb.LimitAssignItem);
+  let ReRoll = Number(userDb.ReRoll);
   const reroll = async () => {
-    if (LimitAssignItem > 0) {
+    if (ReRoll > 0) {
       const main_arr = userDb.missionList;
       const check_arr = userDb.checkMission;
       const clear_arr = userDb.clearMission;
@@ -155,7 +164,7 @@ const Mission = ({ userObj }) => {
 
       await dbService.doc(`users/${userObj.uid}`).update({
         missionList: main3_arr,
-        LimitAssignItem: LimitAssignItem - 1,
+        ReRoll: ReRoll - 1,
       });
     } else {
       alert("리롤권이 없습니다");
@@ -166,7 +175,7 @@ const Mission = ({ userObj }) => {
     <>
       <div>
         <p>Misson</p>
-        <p>Mission Re:Roll : {userDb.LimitAssignItem} / 2</p>
+        <p>Mission Re:Roll : {userDb.ReRoll} / 2</p>
         <button onClick={reroll}>ReRoll</button>
         <ul>
           {userCode.map(item => (
