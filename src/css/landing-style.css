@@ -1,14 +1,14 @@
 body {
   padding: 0;
   margin: 0;
+  height: 100vh;
 }
 
 .landing-Logo {
-  left: 40px;
-  top: 30px;
   position: fixed;
-
   font-size: 2rem;
+  left: 3vw;
+  top: 5vh;
 }
 
 .landing-nav {
@@ -16,25 +16,59 @@ body {
 }
 
 .landing-1 {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 760px;
   background-image: url("../sourceImg/main-background-img.jpg");
   background-position: center center;
-  /* background img */
 }
 
 .landing-2 {
-  height: 760px;
+  height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #dafaaa;
 }
 
 .landing-3 {
-  height: 760px;
+  height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
+  column-gap: 15px;
+  background: #b9f0b9;
+}
+
+.landing-3 > img {
+  height: 20vh;
+  width: 20vh;
+  border: 1px solid black;
+  background: white;
+}
+
+.landing-3 p {
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+.landing-3-container {
+  font-size: 1.6rem;
+}
+
+.landing-3-prob {
+  color: white;
+  font-size: 2rem;
+}
+
+.landing-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 70%;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background: #999;
 }

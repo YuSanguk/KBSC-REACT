@@ -1,16 +1,29 @@
+html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .login-container {
   display: flex;
   justify-content: center;
+  height: 100vh;
+  background-image: url(../sourceImg/login-background-img.jpg);
+  background-size: 130%;
 }
 
-.Google-Login {
+.login-button-container {
+  margin-top: 71vh;
+  display: flex;
+  gap: 3vh;
+  flex-direction: column;
+}
+
+.login-button-container button {
   border: 0px;
-  margin-top: 660px;
+  height: 50px;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 34px;
@@ -18,6 +31,6 @@ body {
   border-radius: 16px;
   cursor: pointer;
   background: #fdfdfd;
-  border-radius: 0.6px solid rgba(240, 240, 240, 0.7);
+  border: 0.6px solid #f0f0f0b3;
   box-shadow: rgba(230, 230, 230, 0.863) 1px 1px;
 }
