@@ -94,7 +94,7 @@ const Mission = ({ userObj }) => {
                 await dbService.doc(`users/${userObj.uid}`).update({
                   checkMission: checkMission,
                   clearMission: clearArray,
-                  point: point + 50, // 포인트가 여러번 더해 짐!!
+                  point: point + 50,
                   recentlyEdit: Date.now(),
                 });
 
@@ -165,6 +165,11 @@ const Mission = ({ userObj }) => {
       await dbService.doc(`users/${userObj.uid}`).update({
         missionList: main3_arr,
         ReRoll: ReRoll - 1,
+      });
+      await dbService.collection("userHistory").add({
+        creatorId: userObj.uid,
+        createdAt: Date.now(),
+        whatDid: "미션 변경",
       });
     } else {
       alert("리롤권이 없습니다");

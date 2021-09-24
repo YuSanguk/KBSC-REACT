@@ -74,9 +74,10 @@ const Store = ({ userObj }) => {
                 <>
                   {viewBuy ? (
                     <>
-                      {userDb.point >= item.price && (
-                        <Items key={item.id} itemObj={item} />
-                      )}
+                      {userDb.point >= item.price &&
+                        userDb.creatorId !== userObj.uid && (
+                          <Items key={item.id} itemObj={item} />
+                        )}
                     </>
                   ) : (
                     <>

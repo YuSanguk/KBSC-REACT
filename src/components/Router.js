@@ -59,7 +59,7 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
               <Modal userObj={userObj} />
             </Route>
             <Route path="/storeitem">
-              <StoreModal />
+              <StoreModal userObj={userObj} />
             </Route>
             <Route path="/evalute">
               <EvalutePage userObj={userObj} />

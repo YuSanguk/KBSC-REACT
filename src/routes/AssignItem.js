@@ -56,6 +56,11 @@ const AssignItem = ({ userObj }) => {
         price: num,
       };
       await dbService.collection("StoreItems").add(nweetObj);
+      await dbService.collection("userHistory").add({
+        creatorId: userObj.uid,
+        createdAt: Date.now(),
+        whatDid: "상품 등록",
+      });
 
       const LimitAssignItemValue = Number(userDb.LimitAssignItem) - 1;
       await dbService.doc(`users/${userObj.uid}`).update({

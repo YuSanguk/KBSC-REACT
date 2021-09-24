@@ -86,6 +86,11 @@ const AssignVerify = ({ userObj }) => {
         const attachmentRef = storageService.ref().child(`tips/${uuidv4()}`);
         const response = await attachmentRef.putString(attachment, "data_url");
         attachmentUrl = await response.ref.getDownloadURL();
+        await dbService.collection("userHistory").add({
+          creatorId: userObj.uid,
+          createdAt: Date.now(),
+          whatDid: "미션 인증 신청",
+        });
       }
 
       const nweetObj = {

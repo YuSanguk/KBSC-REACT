@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { dbService } from "fbase";
 
-const StoreModal = () => {
+const StoreModal = ({ userObj }) => {
   const value = window.location.href.split("?id=")[1];
   const [itemObj, setItemObj] = useState([]);
   useEffect(() => {
@@ -29,6 +29,8 @@ const StoreModal = () => {
     }
   } catch (e) {}
 
+  const onBuy = () => {};
+
   return (
     <>
       <nav>
@@ -47,6 +49,7 @@ const StoreModal = () => {
               <img alt="StoreModal" src={itemObj[pos_].attachmentUrl}></img>
             )}
             <p>{itemObj[pos_].price + " point"}</p>
+            <button onClick={onBuy}>BUY</button>
           </>
         )}
       </div>

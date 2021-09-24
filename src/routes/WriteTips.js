@@ -28,6 +28,11 @@ const WriteTip = ({ userObj }) => {
         attachmentUrl,
       };
       await dbService.collection("tips").add(nweetObj);
+      await dbService.collection("userHistory").add({
+        creatorId: userObj.uid,
+        createdAt: Date.now(),
+        whatDid: "WriteTip",
+      });
       setNweet("");
       setAttachment("");
       window.location.assign("");
