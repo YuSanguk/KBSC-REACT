@@ -39,8 +39,15 @@ const Store = ({ userObj }) => {
   } catch (e) {}
 
   const [displayMode, setDisplayMode] = useState(false);
-  const toggleDisplay = async () => {
+  const toggleDisplay = () => {
     setDisplayMode(prev => !prev);
+    if (viewBuy === true) setViewBuy(prev => !prev);
+  };
+
+  const [viewBuy, setViewBuy] = useState(false);
+  const toggleViewBuy = () => {
+    setViewBuy(prev => !prev);
+    if (displayMode === true) setDisplayMode(prev => !prev);
   };
 
   return (
@@ -50,6 +57,9 @@ const Store = ({ userObj }) => {
       <div>
         <button onClick={toggleDisplay}>
           {displayMode ? "내 상품" : "모든 상품"}
+        </button>
+        <button onClick={toggleViewBuy}>
+          {viewBuy ? "구매 가능" : "모든 상품"}
         </button>
         <ul>
           {items.map(item => (
@@ -62,7 +72,17 @@ const Store = ({ userObj }) => {
                 </>
               ) : (
                 <>
-                  <Items key={item.id} itemObj={item} />
+                  {viewBuy ? (
+                    <>
+                      {userDb.point >= item.price && (
+                        <Items key={item.id} itemObj={item} />
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <Items key={item.id} itemObj={item} />
+                    </>
+                  )}
                 </>
               )}
             </>

@@ -53,6 +53,7 @@ const AssignItem = ({ userObj }) => {
         // 새로운 데이터를 DB에 올리면 DB 공간이 낭비되므로 함수를 추가하여 연산하는 것이 이상적일것같음.
         creatorId: userObj.uid,
         attachmentUrl,
+        price: num,
       };
       await dbService.collection("StoreItems").add(nweetObj);
 
@@ -97,6 +98,27 @@ const AssignItem = ({ userObj }) => {
 
   const OnClearPhoto = () => setAttachment("");
 
+  const CheckNumber = event => {
+    if (event.key >= 0 && event.key <= 9) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const [num, setNum] = useState("");
+  const CheckSize = event => {
+    const {
+      target: { value },
+    } = event;
+    try {
+      setNum(Number(value));
+    } catch (e) {
+      alert("숫자만 입력해주세요");
+      setNum();
+    }
+  };
+
   return (
     <form onSubmit={onSubmit}>
       <input
@@ -112,6 +134,13 @@ const AssignItem = ({ userObj }) => {
         type="text"
         placeholder="What?"
         maxLength={120}
+      />
+      <input
+        type="text"
+        value={num}
+        onKeyDown={CheckNumber}
+        onChange={CheckSize}
+        placeholder="Point 가격"
       />
       <input type="file" onChange={onImageChange} accept="image/*" />
       <input type="submit" value="Up" />

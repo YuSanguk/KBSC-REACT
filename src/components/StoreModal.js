@@ -46,6 +46,7 @@ const StoreModal = () => {
             {itemObj[pos_].attachmentUrl !== "" && (
               <img alt="StoreModal" src={itemObj[pos_].attachmentUrl}></img>
             )}
+            <p>{itemObj[pos_].price + " point"}</p>
           </>
         )}
       </div>

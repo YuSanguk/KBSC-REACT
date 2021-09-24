@@ -15,6 +15,7 @@ const Items = ({ itemObj }) => {
           ></img>
           <p>{itemObj.title}</p>
           <p>{itemObj.text}</p>
+          <p>{itemObj.price + " point"}</p>
         </li>
       </Link>
     </>
