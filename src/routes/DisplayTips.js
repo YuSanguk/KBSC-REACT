@@ -30,7 +30,7 @@ const DisplayTips = ({ userObj, isLoggedIn }) => {
     <>
       <div>
         <button onClick={toggleDisplay}>
-          {displayMode ? "내 상품" : "모든 상품"}
+          {displayMode ? "내 글" : "모든 글"}
         </button>
         <ul>
           {nweets.map(nweet => (

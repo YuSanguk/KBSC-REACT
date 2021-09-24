@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 
-const Modal = () => {
+const Modal = ({ userObj }) => {
   const value = window.location.href.split("?id=")[1];
   const [nweets, setNweets] = useState([]);
   useEffect(() => {
@@ -27,6 +27,17 @@ const Modal = () => {
     }
   }
 
+  const OnDeleateClcik = async () => {
+    const ok = window.confirm("Are you Sure to delete tips?");
+    if (ok) {
+      await dbService.doc(`tips/${nweets[pos].id}`).delete();
+      if (nweets[pos].attachmentUrl !== "") {
+        await storageService.refFromURL(nweets[pos].attachmentUrl).delete();
+      }
+      window.location.assign("");
+    }
+  };
+
   return (
     <>
       <nav>
@@ -39,10 +50,18 @@ const Modal = () => {
       <div>
         {work && (
           <>
+            {nweets[pos].creatorId === userObj.uid && (
+              <button onClick={OnDeleateClcik}>Delete</button>
+            )}
             <h4>{nweets[pos].title}</h4>
             <p>{nweets[pos].text}</p>
             {nweets[pos].attachmentUrl !== "" && (
-              <img alt="modal" src={nweets[pos].attachmentUrl}></img>
+              <img
+                alt="modal"
+                src={nweets[pos].attachmentUrl}
+                height="70px"
+                width="70px"
+              ></img>
             )}
           </>
         )}

@@ -56,7 +56,7 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
               <AssignVerify userObj={userObj} />
             </Route>
             <Route path="/modal">
-              <Modal />
+              <Modal userObj={userObj} />
             </Route>
             <Route path="/storeitem">
               <StoreModal />
