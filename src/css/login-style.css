@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+}
+
+.Google-Login {
+  border: 0px;
+  margin-top: 660px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 34px;
+  padding-right: 34px;
+  border-radius: 16px;
+  cursor: pointer;
+  background: #fdfdfd;
+  border-radius: 0.6px solid rgba(240, 240, 240, 0.7);
+  box-shadow: rgba(230, 230, 230, 0.863) 1px 1px;
+}

@@ -1,42 +1,8 @@
 import { authService, firebaseInstance } from "fbase";
-import React, { useState } from "react";
+import React from "react";
+import "../css/login-style.css";
 
 const Auth = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [newAccount, setNewAccount] = useState(true);
-  const [error, seterror] = useState("");
-  const onChange = event => {
-    const {
-      target: { name, value },
-    } = event;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
-  };
-  const onSubmit = async event => {
-    event.preventDefault();
-    try {
-      let data;
-      if (newAccount) {
-        // create account
-        data = await authService.createUserWithEmailAndPassword(
-          email,
-          password
-        );
-      } else {
-        // log in
-        data = await authService.signInWithEmailAndPassword(email, password);
-      }
-      console.log(data);
-    } catch (error) {
-      seterror(error.message);
-    }
-  };
-
-  const toggleAccount = () => setNewAccount(prev => !prev);
   const onSocialClick = async event => {
     const {
       target: { name },
@@ -44,46 +10,16 @@ const Auth = () => {
     let provider;
     if (name === "google") {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
-    } else if (name === "github") {
-      provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     try {
-      const data = await authService.signInWithPopup(provider);
+      await authService.signInWithPopup(provider);
     } catch (error) {}
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          name="email"
-          type="email   "
-          placeholder="Email"
-          required
-          value={email}
-          onChange={onChange}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={onChange}
-        />
-        <input type="submit" value={newAccount ? "Create Account" : "Log in"} />
-        {error}
-      </form>
-      <span onClick={toggleAccount}>
-        {newAccount ? "Sign in" : "Create Account"}
-      </span>
-      <div>
-        <button onClick={onSocialClick} name="google">
-          Continue With Google
-        </button>
-        <button onClick={onSocialClick} name="github">
-          Continue With Github
-        </button>
-      </div>
+    <div className="login-container">
+      <button onClick={onSocialClick} name="google" className="Google-Login">
+        구글로 로그인하기
+      </button>
     </div>
   );
 };
