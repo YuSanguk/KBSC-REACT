@@ -1,8 +1,16 @@
-import React from "react";
-import { dbService } from "fbase";
+import React, { useState, useEffect } from "react";
+import { dbService, authService } from "fbase";
 import { Link } from "react-router-dom";
+import "../css/home-style.css";
+import { FaRegBell } from "react-icons/fa";
+import { BiCommentError, BiStoreAlt, BiLogOut, BiUser } from "react-icons/bi";
 
 const Home = ({ userObj }) => {
+  const onLogOutClick = () => {
+    const ans = window.confirm("로그아웃 하시겠습니까?");
+    if (ans) authService.signOut();
+  };
+
   const create_code = () => {
     let list = [];
     let value = 0;
@@ -44,11 +52,67 @@ const Home = ({ userObj }) => {
     window.location.assign("");
   }
 
+  let point = 0;
+  const [userData, SetUserData] = useState([]);
+
+  useEffect(() => {
+    dbService.collection("users").onSnapshot(snapshot => {
+      const userArray = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      SetUserData(userArray);
+    });
+  }, []);
+
+  try {
+    for (let i = 0; i < userData.length; i++) {
+      if (userData[i].id === userObj.uid) {
+        point = userData[i].point;
+      }
+    }
+  } catch (e) {}
+
   return (
-    <div>
-      <Link to="/community">Linssk </Link>
-      <div>Here is Home</div>
-    </div>
+    <>
+      <div className="home">
+        <nav>
+          <ul className="home-nav">
+            <li className="home-first">
+              <p>{point + " Point"}</p>
+            </li>
+            <li onClick={onLogOutClick}>
+              <BiLogOut />
+              <p>LogOut</p>
+            </li>
+            <li>
+              <Link to="/mission">
+                <FaRegBell />
+                <p>mission</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/community">
+                <BiCommentError />
+                <p>Community</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/store">
+                <BiStoreAlt />
+                <p>Store</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/profile">
+                <BiUser />
+                <p>History</p>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 };
 export default Home;

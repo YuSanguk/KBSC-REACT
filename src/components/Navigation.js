@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../css/navigation-style.css";
 
 const Navigation = () => (
   <nav>
-    <ul>
+    <ul className="nav-nav">
       <li>
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/profile">My Profile</Link>
+        <Link to="/profile">History</Link>
       </li>
       <li>
         <Link to="/store">Store</Link>
