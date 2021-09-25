@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "RixYeoljeongdo_Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: less-light;
+  src: url("../Fonts/Less.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -5,10 +19,30 @@ body {
 }
 
 .landing-Logo {
+  padding: 0.6vh;
   position: fixed;
-  font-size: 2vw;
   left: 3vw;
   top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.landing-Logo p:nth-child(1) {
+  color: black;
+  font-family: "RixYeoljeongdo_Regular";
+  font-size: 5vh;
+  margin: 0;
+  letter-spacing: 0.3vh;
+}
+
+.landing-Logo p:nth-child(2) {
+  font-family: less-light;
+  margin: 0;
+  color: black;
+  font-size: 3vh;
+  letter-spacing: 0.47vh;
 }
 
 .landing-1 {
@@ -104,7 +138,7 @@ body {
 }
 
 .landing-1-video a {
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,12 +149,15 @@ body {
   align-items: center;
   justify-content: center;
   background: blue;
-  width: 100%;
+  width: 50%;
   border-radius: 24px;
   height: 5vh;
-  color: white;
   transition: 0.3s;
   cursor: pointer;
+}
+
+.landing-toLogin a {
+  color: white !important;
 }
 
 .landing-toLogin:active {

@@ -46,7 +46,10 @@ const Landing = () => {
 
   return (
     <>
-      <div className="landing-Logo">지구자구</div>
+      <div className="landing-Logo">
+        <p>지구자구</p>
+        <p>ZIGUZAGU</p>
+      </div>
       <div className="landing-1">
         <nav>
           <ul className="landing-nav">
@@ -63,9 +66,9 @@ const Landing = () => {
                   {num === 4 ? (
                     <div>
                       <h1>{text[num].main}</h1>
-                      <Link to="/auth">
-                        <p className="landing-toLogin">{text[num].text}</p>
-                      </Link>
+                      <p className="landing-toLogin">
+                        <Link to="/auth">{text[num].text}</Link>
+                      </p>
                     </div>
                   ) : (
                     <div>

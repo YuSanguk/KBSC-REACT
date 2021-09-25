@@ -75,6 +75,10 @@ const Home = ({ userObj }) => {
 
   return (
     <>
+      <div className="home-Logo">
+        <p>지구자구</p>
+        <p>ZIGUZAGU</p>
+      </div>
       <div className="home">
         <nav>
           <ul className="home-nav">
