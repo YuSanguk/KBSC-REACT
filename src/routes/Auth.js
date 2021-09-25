@@ -1,6 +1,7 @@
 import { authService, firebaseInstance } from "fbase";
 import React from "react";
 import "../css/login-style.css";
+import { FaArrowLeft, FaGoogle } from "react-icons/fa";
 
 const Auth = () => {
   const onSocialClick = async event => {
@@ -18,21 +19,16 @@ const Auth = () => {
   return (
     <>
       <div className="login-container">
+        <FaArrowLeft
+          className="login-back"
+          onClick={() => {
+            window.location.assign("");
+          }}
+        />
         <div className="login-button-container">
-          <button
-            className="login-back"
-            onClick={() => {
-              window.location.assign("");
-            }}
-          >
-            뒤로 이동
-          </button>
-          <button
-            onClick={onSocialClick}
-            name="google"
-            className="Google-Login"
-          >
-            구글로 로그인하기
+          <button onClick={onSocialClick} name="google" className="login-icon">
+            <FaGoogle className="login-google-icon" />
+            <span>Sign In Google</span>
           </button>
         </div>
       </div>

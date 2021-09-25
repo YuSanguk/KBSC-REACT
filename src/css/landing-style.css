@@ -6,13 +6,9 @@ body {
 
 .landing-Logo {
   position: fixed;
-  font-size: 2rem;
+  font-size: 2vw;
   left: 3vw;
   top: 5vh;
-}
-
-.landing-nav {
-  list-style: none;
 }
 
 .landing-1 {
@@ -21,7 +17,81 @@ body {
   align-items: center;
   justify-content: center;
   background-image: url("../sourceImg/main-background-img.jpg");
-  background-position: center center;
+  background-size: 100vw 100vh;
+}
+
+.landing-1 > nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(60vh + 6px + 2vh);
+}
+
+.landing-nav {
+  list-style: none;
+  width: calc(60vh + 4px + 2vh);
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: 1vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* https://studiomeal.com/archives/533 참고 */
+}
+
+.landing-nav li:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  width: calc(40vh + 1vh + 2px) !important;
+  height: calc(
+    40vh + 1vh + 2px
+  ) !important; /* 순서대로 각 li의 높이의 2배 + gap + 테두리두꼐) */
+  margin: 0;
+}
+
+.landing-nav li a {
+  color: black;
+  text-decoration: none;
+}
+
+.landing-nav li {
+  text-align: center;
+  height: 20vh;
+  width: 20vh;
+  border-radius: 10px 10px 0% 10px / 10px 10px 0% 10px;
+  box-shadow: rgb(0 0 0 / 2%) -1px 1px 1px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(70, 77, 82, 0.082);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: url("../sourceImg/output-onlinepngtools.cur"), pointer;
+}
+
+.landing-nav li svg {
+  height: 6vh;
+  width: 6vh;
+}
+
+.landing-nav li p {
+  margin-top: 1.7vh !important;
+  margin-bottom: 0;
+}
+
+.landing-1-video video {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 10px 0% 10px / 10px 10px 0% 10px;
+}
+
+.landing-nav li:nth-child(2) a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .landing-2 {

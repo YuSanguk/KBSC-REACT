@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
 html,
 body {
   margin: 0;
@@ -11,26 +13,67 @@ body {
   justify-content: center;
   height: 100vh;
   background-image: url(../sourceImg/login-background-img.jpg);
-  background-size: 130%;
+  background-size: auto 100vh;
 }
 
 .login-button-container {
-  margin-top: 71vh;
-  display: flex;
-  gap: 3vh;
-  flex-direction: column;
+  margin-top: 80vh;
+  text-align: center;
 }
 
-.login-button-container button {
+.login-back {
+  position: fixed;
+  top: 3vh;
+  left: 3vw;
+  border: none;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.login-back:hover {
+  padding: 0.8em;
+  transform: translateX(-0.7em) translateY(-0.7em);
+  background: rgba(100, 100, 100, 0.263);
+  transition: 0.2s;
+}
+
+.login-button-container .login-icon {
   border: 0px;
   height: 50px;
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-left: 34px;
-  padding-right: 34px;
-  border-radius: 16px;
+  padding-left: 27px;
+  padding-right: 27px;
+  border-radius: 8px;
   cursor: pointer;
   background: #fdfdfd;
   border: 0.6px solid #f0f0f0b3;
   box-shadow: rgba(230, 230, 230, 0.863) 1px 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition: 0.4s;
+}
+
+.login-button-container .login-icon:focus {
+  background: rgba(220, 220, 220, 1);
+  box-shadow: rgba(100, 100, 100, 0.863) 1px 1px;
+  border: 0.6px solid #999;
+  transition: 0.4s;
+}
+
+.login-google-icon {
+  height: 1em;
+  width: 1em;
+  color: #444;
+}
+
+.login-icon span {
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 }
