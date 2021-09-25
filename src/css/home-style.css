@@ -96,7 +96,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: url("../sourceImg/output-onlinepngtools.cur"), pointer;
+  cursor: pointer;
 }
 
 .home-nav li svg {

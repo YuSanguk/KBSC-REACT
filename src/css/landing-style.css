@@ -102,7 +102,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: url("../sourceImg/output-onlinepngtools.cur"), pointer;
+  cursor: url("../sourceImg/cursor.png"), pointer;
 }
 
 .landing-nav li:nth-child(2) a {
