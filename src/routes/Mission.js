@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { dbService, storageService } from "fbase";
-import { useState, useEffect } from "react/cjs/react.development";
 import DisplayMission from "components/DisplayMissions";
 import CheckingMission from "components/DisplayCheckingMissions";
 

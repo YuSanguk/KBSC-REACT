@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { dbService } from "fbase";
-import { useState } from "react/cjs/react.development";
 
 const Master = ({ userObj }) => {
   const check = () => {

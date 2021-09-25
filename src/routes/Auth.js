@@ -1,5 +1,5 @@
-import { authService, firebaseInstance } from "fbase";
 import React from "react";
+import { authService, firebaseInstance } from "fbase";
 import "../css/login-style.css";
 import { FaArrowLeft, FaGoogle } from "react-icons/fa";
 

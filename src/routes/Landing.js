@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import "../css/landing-style.css";
 import Video1 from "../sourceImg/InfoVideo.mp4";
 import { FaRegBell, FaQrcode } from "react-icons/fa";

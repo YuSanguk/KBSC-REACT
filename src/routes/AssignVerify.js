@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { dbService, storageService } from "fbase";
-import { useState, useEffect } from "react/cjs/react.development";
 import { v4 as uuidv4 } from "uuid";
 
 const AssignVerify = ({ userObj }) => {

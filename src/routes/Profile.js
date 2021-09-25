@@ -1,6 +1,5 @@
 import { authService, dbService } from "fbase";
-import React from "react";
-import { useState, useEffect } from "react/cjs/react.development";
+import React, { useState, useEffect } from "react";
 import UserHistory from "./DisplayUserHistory";
 
 const Profile = ({ userObj }) => {

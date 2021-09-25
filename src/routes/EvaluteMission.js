@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { dbService } from "fbase";
-import { useState, useEffect } from "react/cjs/react.development";
 
 const EvalutePage = ({ userObj }) => {
   const id = window.location.href.split("?id=")[1];
