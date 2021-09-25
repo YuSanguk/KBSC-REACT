@@ -48,6 +48,7 @@ body {
     40vh + 1vh + 2px
   ) !important; /* 순서대로 각 li의 높이의 2배 + gap + 테두리두꼐) */
   margin: 0;
+  cursor: inherit;
 }
 
 .landing-nav li a {
@@ -70,28 +71,61 @@ body {
   cursor: url("../sourceImg/output-onlinepngtools.cur"), pointer;
 }
 
+.landing-nav li:nth-child(2) a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .landing-nav li svg {
   height: 6vh;
   width: 6vh;
 }
 
-.landing-nav li p {
+.landing-nav li > p {
   margin-top: 1.7vh !important;
   margin-bottom: 0;
+  font-size: 2.3vh;
 }
 
 .landing-1-video video {
-  height: 100%;
-  width: 100%;
+  height: calc(38vh + 4px);
+  width: calc(38vh + 4px);
   border-radius: 10px 10px 0% 10px / 10px 10px 0% 10px;
 }
 
-.landing-nav li:nth-child(2) a {
+.landing-1-video div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
+}
+
+.landing-1-video a {
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.landing-toLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: blue;
+  width: 100%;
+  border-radius: 24px;
+  height: 5vh;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.landing-toLogin:active {
+  background: midnightblue;
+  transition: 0.3s;
 }
 
 .landing-2 {
@@ -100,6 +134,26 @@ body {
   align-items: center;
   justify-content: center;
   background: #dafaaa;
+}
+
+.landing-2 .landing-2-MainText {
+  font-size: 3vh;
+  text-align: right;
+}
+
+.landing-2 .landing-2-MainText p {
+  margin: 0.3em;
+}
+
+.landing-2 .landing-2-SubText {
+  text-align: right;
+  color: white;
+}
+
+.landing-2 .landing-2-info hr {
+  border: none;
+  height: 0.2vh;
+  background: rgb(60, 60, 60);
 }
 
 .landing-3 {

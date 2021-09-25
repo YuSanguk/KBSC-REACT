@@ -1,5 +1,6 @@
 import React from "react";
 import { dbService } from "fbase";
+import { Link } from "react-router-dom";
 
 const Home = ({ userObj }) => {
   const create_code = () => {
@@ -45,6 +46,7 @@ const Home = ({ userObj }) => {
 
   return (
     <div>
+      <Link to="/community">Linssk </Link>
       <div>Here is Home</div>
     </div>
   );

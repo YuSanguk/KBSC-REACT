@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HashRouter as Router,
   Route,
@@ -22,9 +22,49 @@ import StoreModal from "./StoreModal";
 import EvalutePage from "routes/EvaluteMission";
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
+  const [page, setPage] = useState(false);
+  const keyWords = [
+    "profile",
+    "store",
+    "mission",
+    "community",
+    "master",
+    "verify",
+    "modal",
+    "storeitem",
+    "evalute",
+    "write",
+  ];
+
+  window.onhashchange = function async() {
+    const pos = window.location.href;
+    let v = 0;
+    for (let i = 0; i < keyWords.length; i++) {
+      if (pos.indexOf(keyWords[i]) !== -1) {
+        v += 1;
+        break;
+      }
+    }
+    if (v > 0) {
+      setPage(true);
+    } else {
+      setPage(false);
+    }
+  };
+
   return (
     <Router>
-      {isLoggedIn && <Navigation />}
+      {isLoggedIn && (
+        <>
+          {page ? (
+            <>
+              <Navigation />
+            </>
+          ) : (
+            <></>
+          )}
+        </>
+      )}
       <Switch>
         {isLoggedIn ? (
           <>

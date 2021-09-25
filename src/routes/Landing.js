@@ -3,27 +3,32 @@ import { Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import "../css/landing-style.css";
 import Video1 from "../sourceImg/InfoVideo.mp4";
-import { FaRegBell } from "react-icons/fa";
+import { FaRegBell, FaQrcode } from "react-icons/fa";
+import { BiCommentError, BiStoreAlt, BiLogIn } from "react-icons/bi";
 
 const Landing = () => {
   const [mode, setMode] = useState(true);
   const [num, setNum] = useState(-1);
   const text = [
     {
-      main: "mission",
-      text: "mission text",
+      main: "미션으로",
+      text: "환경을 지키는 한걸음 실천해 보세요!",
     },
     {
-      main: "community",
-      text: "commnunity text",
+      main: "커뮤니티에서",
+      text: "환경을 지키는 방법을 공유해 보세요!",
     },
     {
-      main: "store",
-      text: "stotre text",
+      main: "스토어에서",
+      text: "환경 보호의 증거를 구매해 보세요!",
     },
     {
-      main: "Qr code",
-      text: "Qr text",
+      main: "QR을 통해",
+      text: "지구자구 앱을 다운받으세요!",
+    },
+    {
+      main: "지구자구와 함께해요",
+      text: "지구자구 로그인",
     },
   ];
 
@@ -55,59 +60,55 @@ const Landing = () => {
                 </>
               ) : (
                 <>
-                  <div>
-                    <h3>{text[num].main}</h3>
-                    <p>{text[num].text}</p>
-                  </div>
+                  {num === 4 ? (
+                    <div>
+                      <h1>{text[num].main}</h1>
+                      <Link to="/auth">
+                        <p className="landing-toLogin">{text[num].text}</p>
+                      </Link>
+                    </div>
+                  ) : (
+                    <div>
+                      <h3>{text[num].main}</h3>
+                      <p>{text[num].text}</p>
+                    </div>
+                  )}
                 </>
               )}
             </li>
-            <li>
-              <Link to="/Auth">Login</Link>
+            <li onClick={() => toggle(4)}>
+              <BiLogIn />
+              <p>Login</p>
             </li>
-            <li
-              onClick={() => {
-                toggle(0);
-              }}
-              className="mission"
-            >
-              <FaRegBell className="mission" />
+            <li onClick={() => toggle(0)}>
+              <FaRegBell />
               <p>mission</p>
             </li>
-            <li
-              onClick={() => {
-                toggle(1);
-              }}
-            >
-              community
+            <li onClick={() => toggle(1)}>
+              <BiCommentError />
+              <p>Community</p>
             </li>
-            <li
-              onClick={() => {
-                toggle(2);
-              }}
-            >
-              Store
+            <li onClick={() => toggle(2)}>
+              <BiStoreAlt />
+              <p>Store</p>
             </li>
-            <li
-              onClick={() => {
-                toggle(3);
-              }}
-            >
-              Qr Code
+            <li onClick={() => toggle(3)}>
+              <FaQrcode />
+              <p>QR Code</p>
             </li>
           </ul>
         </nav>
       </div>
       <div className="landing-2">
         <div className="landing-2-textContainer">
-          <div className="landing-2-MainText">환경을 보호하는 방법은</div>
-          <div className="landing-2-SubText">
-            여러분들도 이미 알고 있습니다.
+          <div className="landing-2-MainText">
+            <p>환경을 보호하는 방법은</p>
+            <p>여러분들도 이미 알고 있습니다</p>
           </div>
-          <div className="landing-2-subContainer">GuideLines for you</div>
+          <div className="landing-2-SubText">GuideLines for you</div>
         </div>
         <div className="landing-2-info">
-          <div>1</div>
+          <div>LoremIpsum</div>
           <hr />
           <div>2</div>
           <hr />
