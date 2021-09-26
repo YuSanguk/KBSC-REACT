@@ -53,6 +53,7 @@ const Home = ({ userObj }) => {
   }
 
   let point = 0;
+  const nickName = userObj.displayName;
   const [userData, SetUserData] = useState([]);
 
   useEffect(() => {
@@ -83,6 +84,7 @@ const Home = ({ userObj }) => {
         <nav>
           <ul className="home-nav">
             <li className="home-first">
+              <p>{nickName + " 님의 포인트"}</p>
               <p>{point + " Point"}</p>
             </li>
             <li onClick={onLogOutClick}>
