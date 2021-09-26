@@ -4,10 +4,15 @@ body {
   height: 100vh;
 }
 
+.landing-box {
+  height: 98vh;
+  position: absolute;
+}
+
 .landing-Logo {
   padding: 0.6vh;
-  position: fixed;
-  left: 3vw;
+  position: sticky;
+  margin-left: 4vw;
   top: 5vh;
   display: flex;
   justify-content: center;
@@ -260,4 +265,8 @@ body {
 
 .landing-footer a {
   cursor: pointer;
+}
+
+.landing-footer a:hover {
+  text-decoration: underline !important;
 }

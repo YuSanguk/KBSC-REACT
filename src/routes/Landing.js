@@ -55,10 +55,6 @@ const Landing = () => {
 
   return (
     <>
-      <div className="landing-Logo">
-        <p>지구자구</p>
-        <p>ZIGUZAGU</p>
-      </div>
       <div className="landing-navigator">
         <ul>
           <li onClick={() => toDiv("landing-1")}>1</li>
@@ -66,6 +62,12 @@ const Landing = () => {
           <li onClick={() => toDiv("landing-3")}>3</li>
           <li onClick={() => toDiv("landing-4")}>4</li>
         </ul>
+      </div>
+      <div className="landing-box">
+        <div className="landing-Logo">
+          <p>지구자구</p>
+          <p>ZIGUZAGU</p>
+        </div>
       </div>
       <div className="landing-1">
         <nav>
