@@ -1,33 +1,8 @@
-import { authService, dbService } from "fbase";
+import { dbService } from "fbase";
 import React, { useState, useEffect } from "react";
 import UserHistory from "./DisplayUserHistory";
 
 const Profile = ({ userObj }) => {
-  const onLogOutClick = () => {
-    authService.signOut();
-  };
-
-  let point = 0;
-  const [userData, SetUserData] = useState([]);
-
-  useEffect(() => {
-    dbService.collection("users").onSnapshot(snapshot => {
-      const userArray = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      SetUserData(userArray);
-    });
-  }, []);
-
-  try {
-    for (let i = 0; i < userData.length; i++) {
-      if (userData[i].id === userObj.uid) {
-        point = userData[i].point;
-      }
-    }
-  } catch (e) {}
-
   const [userHistory, setUserHistory] = useState([]);
 
   useEffect(() => {
@@ -45,8 +20,6 @@ const Profile = ({ userObj }) => {
 
   return (
     <>
-      <p>{point + " Point"}</p>
-      <button onClick={onLogOutClick}>Log out</button>
       <p>UserHistory</p>
       {userHistory.map(historyData => (
         <>
