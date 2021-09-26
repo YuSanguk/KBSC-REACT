@@ -183,12 +183,14 @@ const Mission = ({ userObj }) => {
         <button onClick={reroll}>ReRoll</button>
         <ul>
           {userCode.map(item => (
-            <DisplayMission
-              key={item}
-              missionCode={item}
-              missions={Missions}
-              userDb={userDb}
-            />
+            <>
+              <DisplayMission
+                key={item}
+                missionCode={item}
+                missions={Missions}
+                userDb={userDb}
+              />
+            </>
           ))}
         </ul>
         <p>Evaluating</p>

@@ -17,8 +17,13 @@ body {
 }
 
 .login-button-container {
-  margin-top: 80vh;
+  margin-top: 68vh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .login-back {
@@ -40,7 +45,12 @@ body {
   transition: 0.2s;
 }
 
+.login-button-container > p {
+  font-size: 0.7rem;
+}
+
 .login-button-container .login-icon {
+  width: 25%;
   border: 0px;
   height: 50px;
   padding-top: 15px;

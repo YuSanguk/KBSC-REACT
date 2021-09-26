@@ -26,6 +26,10 @@ const Auth = () => {
           }}
         />
         <div className="login-button-container">
+          <p>
+            버튼을 눌렀는데 로그인 창이 뜨지 않는다면 5초정도 기다린뒤 다시
+            눌러주세요.
+          </p>
           <button onClick={onSocialClick} name="google" className="login-icon">
             <FaGoogle className="login-google-icon" />
             <span>Sign In Google</span>

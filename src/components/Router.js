@@ -66,57 +66,59 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
         </>
       )}
       <Switch>
-        {isLoggedIn ? (
-          <>
-            <Route exact path="/">
-              <Home userObj={userObj} />
-            </Route>
-            <Route exact path="/profile">
-              <Profile userObj={userObj} />
-            </Route>
-            <Route exact path="/store">
-              <Store userObj={userObj} />
-            </Route>
-            <Route exact path="/mission">
-              <Mission userObj={userObj} />
-            </Route>
-            <Route exact path="/community">
-              <Coummunity userObj={userObj} isLoggedIn={isLoggedIn} />
-            </Route>
-            <Route exact path="/community/write">
-              <WriteTip userObj={userObj} />
-            </Route>
-            <Route exact path="/store/item">
-              <AssignItem userObj={userObj} />
-            </Route>
-            <Route exact path="/master">
-              <Master userObj={userObj} />
-            </Route>
-            <Route path="/verify">
-              <AssignVerify userObj={userObj} />
-            </Route>
-            <Route path="/modal">
-              <Modal userObj={userObj} />
-            </Route>
-            <Route path="/storeitem">
-              <StoreModal userObj={userObj} />
-            </Route>
-            <Route path="/evalute">
-              <EvalutePage userObj={userObj} />
-            </Route>
-            <Redirect from="*" to="/" />
-          </>
-        ) : (
-          <>
-            <Route exact path="/">
-              <Landing />
-            </Route>
-            <Redirect from="*" to="/" />
-            <Route exact path="/auth">
-              <Auth />
-            </Route>
-          </>
-        )}
+        <>
+          {isLoggedIn ? (
+            <>
+              <Route exact path="/">
+                <Home userObj={userObj} />
+              </Route>
+              <Route exact path="/profile">
+                <Profile userObj={userObj} />
+              </Route>
+              <Route exact path="/store">
+                <Store userObj={userObj} />
+              </Route>
+              <Route exact path="/mission">
+                <Mission userObj={userObj} />
+              </Route>
+              <Route exact path="/community">
+                <Coummunity userObj={userObj} isLoggedIn={isLoggedIn} />
+              </Route>
+              <Route exact path="/community/write">
+                <WriteTip userObj={userObj} />
+              </Route>
+              <Route exact path="/store/item">
+                <AssignItem userObj={userObj} />
+              </Route>
+              <Route exact path="/master">
+                <Master userObj={userObj} />
+              </Route>
+              <Route path="/verify">
+                <AssignVerify userObj={userObj} />
+              </Route>
+              <Route path="/modal">
+                <Modal userObj={userObj} />
+              </Route>
+              <Route path="/storeitem">
+                <StoreModal userObj={userObj} />
+              </Route>
+              <Route path="/evalute">
+                <EvalutePage userObj={userObj} />
+              </Route>
+              <Redirect from="*" to="/" />
+            </>
+          ) : (
+            <>
+              <Route exact path="/">
+                <Landing />
+              </Route>
+              <Redirect from="*" to="/" />
+              <Route exact path="/auth">
+                <Auth />
+              </Route>
+            </>
+          )}
+        </>
       </Switch>
     </Router>
   );

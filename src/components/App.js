@@ -23,7 +23,9 @@ function App() {
   return (
     <>
       {init ? (
-        <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
+        <>
+          <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
+        </>
       ) : (
         "Initializing"
       )}

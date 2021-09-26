@@ -63,24 +63,13 @@ const Store = ({ userObj }) => {
         <ul>
           {items.map(item => (
             <>
-              {displayMode ? (
+              {((viewBuy === false && displayMode === false) ||
+                (displayMode && item.creatorId === userObj.uid) ||
+                (displayMode === false && viewBuy)) && (
                 <>
                   {item.creatorId === userObj.uid && (
-                    <Items key={item.id} itemObj={item} />
-                  )}
-                </>
-              ) : (
-                <>
-                  {viewBuy ? (
                     <>
-                      {userDb.point >= item.price &&
-                        userDb.creatorId !== userObj.uid && (
-                          <Items key={item.id} itemObj={item} />
-                        )}
-                    </>
-                  ) : (
-                    <>
-                      <Items key={item.id} itemObj={item} />
+                      <Items key={item.id + "2"} itemObj={item} />
                     </>
                   )}
                 </>

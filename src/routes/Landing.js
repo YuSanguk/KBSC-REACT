@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { scroller } from "react-scroll";
 import { Link } from "react-router-dom";
 import "../css/landing-style.css";
 import Video1 from "../sourceImg/InfoVideo.mp4";
+import Pdf from "../useing/Info.pdf";
 import { FaRegBell, FaQrcode } from "react-icons/fa";
 import { BiCommentError, BiStoreAlt, BiLogIn } from "react-icons/bi";
 
@@ -31,6 +33,14 @@ const Landing = () => {
     },
   ];
 
+  function toDiv(name) {
+    scroller.scrollTo(name, {
+      duration: 1000,
+      delay: 0,
+      smooth: "easeInOutQuint",
+    });
+  }
+
   function toggle(number) {
     if (num === -1) {
       setMode(prev => !prev);
@@ -48,6 +58,14 @@ const Landing = () => {
       <div className="landing-Logo">
         <p>지구자구</p>
         <p>ZIGUZAGU</p>
+      </div>
+      <div className="landing-navigator">
+        <ul>
+          <li onClick={() => toDiv("landing-1")}>1</li>
+          <li onClick={() => toDiv("landing-2")}>2</li>
+          <li onClick={() => toDiv("landing-3")}>3</li>
+          <li onClick={() => toDiv("landing-4")}>4</li>
+        </ul>
       </div>
       <div className="landing-1">
         <nav>
@@ -125,9 +143,18 @@ const Landing = () => {
           <p>지구를 지킬 수 있습니다. "</p>
         </div>
       </div>
+      <div className="landing-4"></div>
       <footer className="landing-footer">
         <p>지구자구</p>
-        <p>개인정보처리방침</p>
+        <a
+          href={Pdf}
+          target="_blank"
+          without
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          개인정보처리방침
+        </a>
       </footer>
     </>
   );
