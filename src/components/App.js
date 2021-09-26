@@ -27,7 +27,7 @@ function App() {
           <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
         </>
       ) : (
-        "Initializing"
+        "동기화 중"
       )}
       {/* <footer>&copy; {new Date().getFullYear()} CLEAN</footer> */}
     </>

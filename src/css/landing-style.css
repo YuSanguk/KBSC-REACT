@@ -179,7 +179,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #dafaaa;
+  background: #ffffff;
+  background-image: url(../sourceImg/Landing-2.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 20vh;
+  background-size: 55vw 100vh;
+}
+
+.landing-2-Container {
+  margin-bottom: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .landing-2 .landing-2-MainText {
@@ -208,10 +222,12 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  grid-column-gap: 15px;
-  -webkit-column-gap: 15px;
-  column-gap: 15px;
-  background: #b9f0b9;
+  background: #dafaaa;
+  background-image: url(../sourceImg/Landing-3.png);
+  background-size: 50vw 50vh;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 43vh;
 }
 
 .landing-3 > img {
@@ -241,9 +257,12 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  grid-column-gap: 15px;
-  -webkit-column-gap: 15px;
-  column-gap: 15px;
+
+  background-image: url(../sourceImg/Landing-4.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 20vh;
+  background-size: 55vw 100vh;
 }
 
 .landing-footer {

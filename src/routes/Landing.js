@@ -122,23 +122,13 @@ const Landing = () => {
         </nav>
       </div>
       <div className="landing-2">
-        <div className="landing-2-textContainer">
-          <div className="landing-2-MainText">
-            <p>환경을 보호하는 방법은</p>
-            <p>여러분들도 이미 알고 있습니다</p>
-          </div>
-          <div className="landing-2-SubText">GuideLines for you</div>
-        </div>
-        <div className="landing-2-info">
-          <div>LoremIpsum</div>
-          <hr />
-          <div>2</div>
-          <hr />
-          <div>3</div>
+        <div className="landing-2-Container">
+          <div>오염된 지구</div>
+          <div>다시 되돌릴 수 있을까요?</div>
         </div>
       </div>
+
       <div className="landing-3">
-        <img alt="" />
         <div className="landing-3-container">
           <p className="landing-3-prob">We Can Save</p>
           <p>" 작은 화면 속에서도</p>
