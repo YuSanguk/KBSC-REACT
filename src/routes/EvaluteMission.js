@@ -60,6 +60,11 @@ const EvalutePage = ({ userObj }) => {
         sum: sum,
         who: who,
       });
+      await dbService.collection("userHistory").add({
+        creatorId: userObj.uid,
+        createdAt: Date.now(),
+        whatDid: "미션 평가",
+      });
       setNum(0);
       window.location.assign("");
     } else {
