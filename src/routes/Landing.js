@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { scroller } from "react-scroll";
 import { Link } from "react-router-dom";
 import "../css/landing-style.css";

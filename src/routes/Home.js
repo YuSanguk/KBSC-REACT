@@ -84,6 +84,7 @@ const Home = ({ userObj }) => {
         <nav>
           <ul className="home-nav">
             <li className="home-first">
+              <img src={userObj.photoURL} alt="hi" />
               <p>{nickName + " 님의 포인트"}</p>
               <p>{point + " Point"}</p>
             </li>
