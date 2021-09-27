@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactCardFlip from "react-card-flip";
 import { dbService, authService } from "fbase";
 import { Link } from "react-router-dom";
 import "../css/home-style.css";
@@ -10,6 +11,8 @@ const Home = ({ userObj }) => {
     const ans = window.confirm("로그아웃 하시겠습니까?");
     if (ans) authService.signOut();
   };
+
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const create_code = () => {
     let list = [];
@@ -84,9 +87,27 @@ const Home = ({ userObj }) => {
         <nav>
           <ul className="home-nav">
             <li className="home-first">
-              <img src={userObj.photoURL} alt="hi" />
-              <p>{nickName + " 님의 포인트"}</p>
-              <p>{point + " Point"}</p>
+              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                <div
+                  onMouseEnter={() => setIsFlipped(prev => !prev)}
+                  className="CardFront"
+                >
+                  <p>Display Left Time</p>
+                  <div className="CardInfo">
+                    On
+                    <br />
+                    Mouse
+                  </div>
+                </div>
+                <div
+                  onMouseLeave={() => setIsFlipped(prev => !prev)}
+                  className="CardBack"
+                >
+                  <img src={userObj.photoURL} alt="hi" />
+                  <p>{nickName + " 님의 포인트"}</p>
+                  <p>{point + " Point"}</p>
+                </div>
+              </ReactCardFlip>
             </li>
             <li onClick={onLogOutClick}>
               <BiLogOut />

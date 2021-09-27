@@ -84,6 +84,33 @@ body {
   margin: 0;
 }
 
+.home-first .CardFront {
+  width: calc(40vh + 1vh + 2px) !important;
+  height: calc(40vh + 1vh + 2px) !important;
+}
+
+.CardInfo {
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.8rem;
+  transform: translateY(calc(41vh + 4px - 100%))
+    translateX(calc(41vh - 100% + 4px));
+  width: 25% !important;
+  border-radius: 100% 0% 0% 100% / 100% 30% 70% 0%;
+  height: 25% !important;
+  text-align: right;
+  white-space: pre;
+  color: white;
+  background: #2e303d;
+  position: absolute;
+}
+
+.home-first .CardBack {
+  width: calc(40vh + 1vh + 2px) !important;
+  height: calc(40vh + 1vh + 2px) !important;
+}
+
 .home-nav li {
   text-align: center;
   height: 20vh;

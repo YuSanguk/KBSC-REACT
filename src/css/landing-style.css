@@ -175,7 +175,7 @@ body {
 }
 
 .landing-2 {
-  height: 95vh;
+  height: 93vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,8 +183,9 @@ body {
   background-image: url(../sourceImg/Landing-2.png);
   background-repeat: no-repeat;
   background-position-x: center;
-  background-position-y: 20vh;
+  background-position-y: 18vh;
   background-size: 55vw 100vh;
+  margin-bottom: 2vh;
 }
 
 .landing-2-container {
@@ -230,7 +231,8 @@ body {
 }
 
 .landing-4 {
-  height: 95vh;
+  height: 93vh;
+  margin-bottom: 2vh;
   display: flex;
   align-items: center;
   justify-content: center;
