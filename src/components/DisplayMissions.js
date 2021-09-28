@@ -20,20 +20,18 @@ const DisplayMission = ({ missionCode, missions, userDb }) => {
 
   return (
     <>
-      <div>
-        <li>
-          <p>{missions[missionCode]}</p>
-          {process === "아직아무것도" ? (
-            <>
-              <Link to={pos + "id=" + missionCode}>
-                <p>인증하기</p>
-              </Link>
-            </>
-          ) : (
-            <p>{process}</p>
-          )}
-        </li>
-      </div>
+      <li>
+        <p>{missions[missionCode]}</p>
+        {process === "아직아무것도" ? (
+          <>
+            <Link to={pos + "id=" + missionCode}>
+              <p>인증하기</p>
+            </Link>
+          </>
+        ) : (
+          <p>{process}</p>
+        )}
+      </li>
     </>
   );
 };

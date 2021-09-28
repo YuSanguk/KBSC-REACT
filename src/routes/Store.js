@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { dbService } from "fbase";
 import { Link } from "react-router-dom";
 import Items from "components/StoreItems";
+import "../css/store-style.css";
 
 const Store = ({ userObj }) => {
   const [items, setItems] = useState([]);
@@ -50,33 +51,37 @@ const Store = ({ userObj }) => {
   };
 
   return (
-    <>
+    <div className="store">
+      <h3>STORE</h3>
       <p>상품등록권 : {userDb.LimitAssignItem} / 3 </p>
-      <Link to="/store/item">Assign</Link>
-      <div>
-        <button onClick={toggleDisplay}>
-          {displayMode ? "내 상품" : "모든 상품"}
-        </button>
-        <button onClick={toggleViewBuy}>
-          {viewBuy ? "구매 가능" : "모든 상품"}
-        </button>
-        <ul>
-          {items.map(item => (
-            <>
-              {((viewBuy === false && displayMode === false) ||
-                (displayMode && item.creatorId === userObj.uid) ||
-                (displayMode === false &&
-                  viewBuy &&
-                  item.price < userDb.point)) && (
-                <>
-                  <Items key={item.id + "2"} itemObj={item} />
-                </>
-              )}
-            </>
-          ))}
-        </ul>
+      <div className="store-head">
+        <Link to="/store/item">상품등록하러 가기</Link>
+        <div>
+          <button onClick={toggleDisplay}>
+            {displayMode ? "내 상품" : "모든 상품"}
+          </button>
+          <button onClick={toggleViewBuy}>
+            {viewBuy ? "구매 가능" : "모든 상품"}
+          </button>
+        </div>
       </div>
-    </>
+      <ul>
+        {items.map(item => (
+          <>
+            {((viewBuy === false && displayMode === false) ||
+              (displayMode && item.creatorId === userObj.uid) ||
+              (displayMode === false &&
+                viewBuy &&
+                item.price < userDb.point)) && (
+              <>
+                <Items key={item.id + "2"} itemObj={item} />
+              </>
+            )}
+          </>
+        ))}
+        <hr />
+      </ul>
+    </div>
   );
 };
 export default Store;

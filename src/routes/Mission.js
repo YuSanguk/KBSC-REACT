@@ -198,7 +198,7 @@ const Mission = ({ userObj }) => {
             Evalute
           </p>
         </div>
-        <div>
+        <div className="mission-body">
           {display ? (
             <>
               <div className="mission-middle-box">
@@ -233,6 +233,7 @@ const Mission = ({ userObj }) => {
               )}
             </ul>
           )}
+          <hr />
         </div>
       </div>
     </>

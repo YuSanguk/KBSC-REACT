@@ -1,0 +1,48 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.store-head {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.store ul {
+  list-style: none;
+  width: 100%;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.store ul li {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.store ul hr {
+  width: 100%;
+  border: hidden;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
