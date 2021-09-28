@@ -48,6 +48,7 @@ const Mission = ({ userObj }) => {
   } catch (e) {}
   //  console.log(MissionList);
 
+  const [onEval, setOnEval] = useState(false);
   const [CheckingData, setCheckingData] = useState("");
   let DisplayData = [];
   useEffect(() => {
@@ -70,6 +71,7 @@ const Mission = ({ userObj }) => {
         CheckingData[i].who.includes(userObj.uid) === false
       ) {
         DisplayData.push(CheckingData[i]);
+        if (onEval === false) setOnEval(true);
       } else if (CheckingData[i].creatorId === userObj.uid) {
         const people = CheckingData[i].people;
         const sum = CheckingData[i].sum;
@@ -199,8 +201,10 @@ const Mission = ({ userObj }) => {
         <div>
           {display ? (
             <>
-              <p>Mission Re:Roll : {userDb.ReRoll} / 2</p>
-              <button onClick={reroll}>ReRoll</button>
+              <div className="mission-middle-box">
+                <p>Mission Re:Roll : {userDb.ReRoll} / 2</p>
+                <button onClick={reroll}>ReRoll</button>
+              </div>
               <ul>
                 {userCode.map(item => (
                   <>
@@ -217,9 +221,17 @@ const Mission = ({ userObj }) => {
           ) : (
             <>
               <ul>
-                {DisplayData.map(item => (
-                  <CheckingMission key={item.id} mission={item} />
-                ))}
+                {onEval ? (
+                  <>
+                    {DisplayData.map(item => (
+                      <CheckingMission key={item.id} mission={item} />
+                    ))}
+                  </>
+                ) : (
+                  <li>
+                    <p>"미션이 없습니다"</p>
+                  </li>
+                )}
               </ul>
             </>
           )}

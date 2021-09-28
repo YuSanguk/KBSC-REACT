@@ -29,6 +29,7 @@ body {
   margin: 0;
   margin-top: 6vh;
   padding: 0;
+  margin-bottom: 2vh;
 }
 
 .mission-select {
@@ -36,11 +37,34 @@ body {
   background-color: khaki !important;
 }
 
+.mission-middle-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5vw;
+  width: 100%;
+}
+
 .mission-Container button {
-  width: 20vw;
+  width: 12vh;
+  height: 6vh;
 }
 
 .mission-Container ul li {
   list-style: none;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mission-Container ul li p {
+  margin: 0;
+}
+
+.mission-Container ul li a {
+  text-decoration: none;
+  margin: 0;
+}
+
+.mission-Container ul li * {
+  margin-top: 0.7em !important;
+  margin-bottom: 0.7em !important;
 }

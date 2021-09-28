@@ -25,7 +25,9 @@ const DisplayMission = ({ missionCode, missions, userDb }) => {
           <p>{missions[missionCode]}</p>
           {process === "아직아무것도" ? (
             <>
-              <Link to={pos + "id=" + missionCode}>인증하기</Link>
+              <Link to={pos + "id=" + missionCode}>
+                <p>인증하기</p>
+              </Link>
             </>
           ) : (
             <p>{process}</p>
