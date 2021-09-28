@@ -3,13 +3,37 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .mission-Container {
+  margin: 0;
+  padding: 0;
+  margin-left: 20%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
+}
+
+.mission-Container .mission-Head {
+  display: flex;
+  flex-direction: row;
+}
+
+.mission-Container .mission-Head p {
+  width: 50%;
+  border: 1px solid black;
+  text-align: center;
+  height: 8vh;
+  margin: 0;
+  margin-top: 6vh;
+  padding: 0;
+}
+
+.mission-select {
+  border: 1px yellow solid !important;
+  background-color: khaki !important;
 }
 
 .mission-Container button {
@@ -18,4 +42,5 @@ body {
 
 .mission-Container ul li {
   list-style: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }

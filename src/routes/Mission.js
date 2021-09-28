@@ -176,32 +176,54 @@ const Mission = ({ userObj }) => {
     }
   };
 
-  const mode = useState(false);
+  const [display, setDisplay] = useState(true);
+  const toMission = () => {
+    setDisplay(true);
+  };
+
+  const toEvalute = () => {
+    setDisplay(false);
+  };
 
   return (
     <>
       <div className="mission-Container">
-        <p>Misson</p>
-        <p>Mission Re:Roll : {userDb.ReRoll} / 2</p>
-        <button onClick={reroll}>ReRoll</button>
-        <ul>
-          {userCode.map(item => (
+        <div className="mission-Head">
+          <p onClick={toMission} className={display ? "mission-select" : null}>
+            Mission
+          </p>
+          <p onClick={toEvalute} className={display ? null : "mission-select"}>
+            Evalute
+          </p>
+        </div>
+        <div>
+          {display ? (
             <>
-              <DisplayMission
-                key={item}
-                missionCode={item}
-                missions={Missions}
-                userDb={userDb}
-              />
+              <p>Mission Re:Roll : {userDb.ReRoll} / 2</p>
+              <button onClick={reroll}>ReRoll</button>
+              <ul>
+                {userCode.map(item => (
+                  <>
+                    <DisplayMission
+                      key={item}
+                      missionCode={item}
+                      missions={Missions}
+                      userDb={userDb}
+                    />
+                  </>
+                ))}
+              </ul>
             </>
-          ))}
-        </ul>
-        <p>Evaluating</p>
-        <ul>
-          {DisplayData.map(item => (
-            <CheckingMission key={item.id} mission={item} />
-          ))}
-        </ul>
+          ) : (
+            <>
+              <ul>
+                {DisplayData.map(item => (
+                  <CheckingMission key={item.id} mission={item} />
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
       </div>
     </>
   );
