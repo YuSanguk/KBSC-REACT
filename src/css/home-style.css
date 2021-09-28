@@ -104,6 +104,13 @@ body {
   color: white;
   background: #2e303d;
   position: absolute;
+  opacity: 0.95;
+  transition: 0.12s ease-in-out;
+}
+
+.CardFront:hover .CardInfo {
+  opacity: 0;
+  transition: 0.12s ease-in-out;
 }
 
 .home-first .CardBack {
@@ -131,9 +138,9 @@ body {
   width: 6vh;
 }
 
-.home-nav li > p {
+.home-nav li p {
   margin-top: 1.7vh !important;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
   font-size: 2.3vh;
 }
 

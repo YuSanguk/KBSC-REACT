@@ -65,13 +65,11 @@ const Store = ({ userObj }) => {
             <>
               {((viewBuy === false && displayMode === false) ||
                 (displayMode && item.creatorId === userObj.uid) ||
-                (displayMode === false && viewBuy)) && (
+                (displayMode === false &&
+                  viewBuy &&
+                  item.price < userDb.point)) && (
                 <>
-                  {item.creatorId === userObj.uid && (
-                    <>
-                      <Items key={item.id + "2"} itemObj={item} />
-                    </>
-                  )}
+                  <Items key={item.id + "2"} itemObj={item} />
                 </>
               )}
             </>

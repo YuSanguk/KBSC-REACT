@@ -29,7 +29,7 @@ const Landing = () => {
     },
     {
       main: "지구자구와 함께해요",
-      text: "지구자구 로그인",
+      text: "로그인하러가기",
     },
   ];
 
@@ -57,10 +57,10 @@ const Landing = () => {
     <>
       <div className="landing-navigator">
         <ul>
-          <li onClick={() => toDiv("landing-1")}>1</li>
-          <li onClick={() => toDiv("landing-2")}>2</li>
-          <li onClick={() => toDiv("landing-3")}>3</li>
-          <li onClick={() => toDiv("landing-4")}>4</li>
+          <li onClick={() => toDiv("landing-1")}># MAIN</li>
+          <li onClick={() => toDiv("landing-2")}># WHY</li>
+          <li onClick={() => toDiv("landing-3")}># LET</li>
+          <li onClick={() => toDiv("landing-4")}># START</li>
         </ul>
       </div>
       <div className="landing-box">
@@ -91,7 +91,7 @@ const Landing = () => {
                     </div>
                   ) : (
                     <div>
-                      <h3>{text[num].main}</h3>
+                      <h1>{text[num].main}</h1>
                       <p>{text[num].text}</p>
                     </div>
                   )}
@@ -141,13 +141,7 @@ const Landing = () => {
       </div>
       <footer className="landing-footer">
         <p>지구자구</p>
-        <a
-          href={Pdf}
-          target="_blank"
-          without
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <a href={Pdf} target="_blank" rel="noopener noreferrer" target="_blank">
           개인정보처리방침
         </a>
       </footer>

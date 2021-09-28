@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { dbService, storageService } from "fbase";
 import DisplayMission from "components/DisplayMissions";
 import CheckingMission from "components/DisplayCheckingMissions";
+import "../css/mission-style.css";
 
 const Mission = ({ userObj }) => {
   let UserMissionList = useState(""); // 유저 별 미션 코드 번호
@@ -175,9 +176,11 @@ const Mission = ({ userObj }) => {
     }
   };
 
+  const mode = useState(false);
+
   return (
     <>
-      <div>
+      <div className="mission-Container">
         <p>Misson</p>
         <p>Mission Re:Roll : {userDb.ReRoll} / 2</p>
         <button onClick={reroll}>ReRoll</button>

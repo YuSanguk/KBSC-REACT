@@ -153,6 +153,12 @@ body {
   justify-content: center;
 }
 
+.landing-1-video div {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
 .landing-toLogin {
   display: flex;
   align-items: center;
@@ -163,6 +169,14 @@ body {
   height: 5vh;
   transition: 0.3s;
   cursor: pointer;
+}
+
+.landing-1-video h1 {
+  margin: 0 !important;
+}
+
+.landing-1-video div p {
+  margin: 0;
 }
 
 .landing-toLogin a {

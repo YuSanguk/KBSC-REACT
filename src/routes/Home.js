@@ -87,7 +87,7 @@ const Home = ({ userObj }) => {
         <nav>
           <ul className="home-nav">
             <li className="home-first">
-              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+              <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
                 <div
                   onMouseEnter={() => setIsFlipped(prev => !prev)}
                   className="CardFront"
