@@ -219,21 +219,19 @@ const Mission = ({ userObj }) => {
               </ul>
             </>
           ) : (
-            <>
-              <ul>
-                {onEval ? (
-                  <>
-                    {DisplayData.map(item => (
-                      <CheckingMission key={item.id} mission={item} />
-                    ))}
-                  </>
-                ) : (
-                  <li>
-                    <p>"미션이 없습니다"</p>
-                  </li>
-                )}
-              </ul>
-            </>
+            <ul className="mission-eval">
+              {onEval ? (
+                <>
+                  {DisplayData.map(item => (
+                    <CheckingMission key={item.id} mission={item} />
+                  ))}
+                </>
+              ) : (
+                <li>
+                  <p className="mission-no">"미션이 없습니다"</p>
+                </li>
+              )}
+            </ul>
           )}
         </div>
       </div>
