@@ -34,7 +34,7 @@ const WriteTip = ({ userObj }) => {
       });
       setNweet("");
       setAttachment("");
-      window.location.assign("");
+      window.location.assign("#/community");
     }
   };
 

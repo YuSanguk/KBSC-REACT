@@ -16,12 +16,28 @@ const EvalutePage = ({ userObj }) => {
     });
   }, []);
 
+  let Missions = useState("");
+  let user_mission;
+  const [item, SetItem] = useState([]);
+
+  useEffect(() => {
+    dbService.collection("MissionList").onSnapshot(snapshot => {
+      const itemArray = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      SetItem(itemArray);
+    });
+  });
+
   let worked = false;
 
   try {
     for (let i = 0; i < datas.length; i++) {
       if (datas[i].id === id) {
         data = datas[i];
+        Missions = item[0].mission;
+        user_mission = Missions[data.missionCode];
         worked = true;
         break;
       }
@@ -76,7 +92,12 @@ const EvalutePage = ({ userObj }) => {
   return (
     <>
       <Link to="/mission">back</Link>
-      {worked && <div>{data.text}</div>}
+      {worked && (
+        <>
+          <div>{user_mission}</div>
+          <div>{data.text}</div>
+        </>
+      )}
 
       <form onSubmit={onSubmit}>
         <input

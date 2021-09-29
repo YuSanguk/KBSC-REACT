@@ -4,8 +4,6 @@ const Nweet = ({ nweetObj }) => {
   return (
     <>
       <div>
-        <h4>{nweetObj.title}</h4>
-        <h4>{nweetObj.text}</h4>
         {nweetObj.attachmentUrl && (
           <img
             alt="tips"
@@ -14,6 +12,8 @@ const Nweet = ({ nweetObj }) => {
             height="50px"
           ></img>
         )}
+        <h4>{nweetObj.title}</h4>
+        <h4>{nweetObj.text}</h4>
       </div>
     </>
   );

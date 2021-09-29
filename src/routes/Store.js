@@ -7,13 +7,16 @@ import "../css/store-style.css";
 const Store = ({ userObj }) => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    dbService.collection("StoreItems").onSnapshot(snapshot => {
-      const itemArray = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setItems(itemArray);
-    });
+    dbService
+      .collection("StoreItems")
+      .orderBy("createdAt", "desc")
+      .onSnapshot(snapshot => {
+        const itemArray = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setItems(itemArray);
+      });
   }, []);
 
   let userDb = [];

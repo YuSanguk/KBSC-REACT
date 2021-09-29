@@ -110,7 +110,7 @@ const AssignVerify = ({ userObj }) => {
       });
       setNweet("");
       setAttachment("");
-      window.location.assign("");
+      window.location.assign("#/mission");
     }
   };
 
