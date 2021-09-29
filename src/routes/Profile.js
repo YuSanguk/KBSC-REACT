@@ -1,6 +1,7 @@
 import { dbService } from "fbase";
 import React, { useState, useEffect } from "react";
 import UserHistory from "./DisplayUserHistory";
+import "../css/userHistory-style.css";
 
 const Profile = ({ userObj }) => {
   const [userHistory, setUserHistory] = useState([]);
@@ -19,18 +20,20 @@ const Profile = ({ userObj }) => {
   }, []);
 
   return (
-    <>
-      <p>UserHistory</p>
-      {userHistory.map(historyData => (
-        <>
-          <ul>
+    <div className="UserHistory">
+      <h2>UserHistory</h2>
+
+      <ul>
+        {userHistory.map(historyData => (
+          <>
             {historyData.creatorId === userObj.uid && (
               <UserHistory key={historyData.id} historyData={historyData} />
             )}
-          </ul>
-        </>
-      ))}
-    </>
+          </>
+        ))}
+        <hr />
+      </ul>
+    </div>
   );
 };
 

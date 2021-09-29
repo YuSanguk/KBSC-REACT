@@ -60,6 +60,7 @@ const StoreModal = ({ userObj }) => {
         await dbService.doc(`users/${userObj.uid}`).update({
           point: userDb.point - itemObj[pos_].price,
         });
+        // 아이템 삭제를 할때, 이미지를 먼저 삭제하고, 데이터를 삭제한다
         window.location.assign("");
       }
     } else {
