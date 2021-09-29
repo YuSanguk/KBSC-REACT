@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { dbService } from "fbase";
 import Nweet from "components/Tips";
 import { Link } from "react-router-dom";
+import "../css/community-style.css";
 
-const DisplayTips = ({ userObj, isLoggedIn }) => {
+const DisplayTips = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
   useEffect(() => {
     dbService
@@ -27,29 +28,18 @@ const DisplayTips = ({ userObj, isLoggedIn }) => {
 
   return (
     <>
-      <div>
+      <div className="community-head">
+        <Link to="/community/write">Write</Link>
         <button onClick={toggleDisplay}>
           {displayMode ? "내 글" : "모든 글"}
         </button>
-        <ul>
-          {nweets.map(nweet => (
-            <>
-              {displayMode ? (
-                <>
-                  {nweet.creatorId === userObj.uid && (
-                    <li key={nweet.id}>
-                      <Link to={pos + "id=" + nweet.id}>
-                        <Nweet
-                          key={nweet.id}
-                          nweetObj={nweet}
-                          isOwner={nweet.creatorId === userObj.uid}
-                        />
-                      </Link>
-                    </li>
-                  )}
-                </>
-              ) : (
-                <>
+      </div>
+      <ul>
+        {nweets.map(nweet => (
+          <>
+            {displayMode ? (
+              <>
+                {nweet.creatorId === userObj.uid && (
                   <li key={nweet.id}>
                     <Link to={pos + "id=" + nweet.id}>
                       <Nweet
@@ -59,12 +49,25 @@ const DisplayTips = ({ userObj, isLoggedIn }) => {
                       />
                     </Link>
                   </li>
-                </>
-              )}
-            </>
-          ))}
-        </ul>
-      </div>
+                )}
+              </>
+            ) : (
+              <>
+                <li key={nweet.id}>
+                  <Link to={pos + "id=" + nweet.id}>
+                    <Nweet
+                      key={nweet.id}
+                      nweetObj={nweet}
+                      isOwner={nweet.creatorId === userObj.uid}
+                    />
+                  </Link>
+                </li>
+              </>
+            )}
+          </>
+        ))}
+        <hr />
+      </ul>
     </>
   );
 };

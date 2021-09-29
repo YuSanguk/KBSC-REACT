@@ -1,13 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import DisplayTips from "./DisplayTips";
+import "../css/community-style.css";
 
 const Community = ({ userObj, isLoggedIn }) => {
   return (
-    <>
-      <Link to="/community/write">Write</Link>
+    <div className="community-container">
+      <h2>Community</h2>
       <DisplayTips userObj={userObj} isLoggedIn={isLoggedIn} />
-    </>
+    </div>
   );
 };
 
