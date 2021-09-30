@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/KBSC-REACT/static/css/main.96db8a83.chunk.css",
-    "main.js": "/KBSC-REACT/static/js/main.bb746f44.chunk.js",
-    "main.js.map": "/KBSC-REACT/static/js/main.bb746f44.chunk.js.map",
+    "main.js": "/KBSC-REACT/static/js/main.0961bdaa.chunk.js",
+    "main.js.map": "/KBSC-REACT/static/js/main.0961bdaa.chunk.js.map",
     "runtime-main.js": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js",
     "runtime-main.js.map": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js.map",
     "static/js/2.aac7308d.chunk.js": "/KBSC-REACT/static/js/2.aac7308d.chunk.js",
@@ -14,13 +14,13 @@
     "static/media/InfoVideo.543e2f2e.mp4": "/KBSC-REACT/static/media/InfoVideo.543e2f2e.mp4",
     "static/media/landing-style.css": "/KBSC-REACT/static/media/Landing-4.bd8e90fb.png",
     "static/media/home-style.css": "/KBSC-REACT/static/media/main-background-img.b73ad35f.jpg",
-    "static/media/login-background-img.5599c6dd.webp": "/KBSC-REACT/static/media/login-background-img.5599c6dd.webp",
+    "static/media/login.938b6670.webp": "/KBSC-REACT/static/media/login.938b6670.webp",
     "static/media/main-background-img.19523659.webp": "/KBSC-REACT/static/media/main-background-img.19523659.webp"
   },
   "entrypoints": [
     "static/js/runtime-main.0a44b0e5.js",
     "static/js/2.aac7308d.chunk.js",
     "static/css/main.96db8a83.chunk.css",
-    "static/js/main.bb746f44.chunk.js"
+    "static/js/main.0961bdaa.chunk.js"
   ]
 }
