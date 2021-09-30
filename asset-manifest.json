@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/KBSC-REACT/static/css/main.4e0d080f.chunk.css",
-    "main.js": "/KBSC-REACT/static/js/main.2d61a7d7.chunk.js",
-    "main.js.map": "/KBSC-REACT/static/js/main.2d61a7d7.chunk.js.map",
+    "main.css": "/KBSC-REACT/static/css/main.96db8a83.chunk.css",
+    "main.js": "/KBSC-REACT/static/js/main.c20747c8.chunk.js",
+    "main.js.map": "/KBSC-REACT/static/js/main.c20747c8.chunk.js.map",
     "runtime-main.js": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js",
     "runtime-main.js.map": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js.map",
     "static/js/2.aac7308d.chunk.js": "/KBSC-REACT/static/js/2.aac7308d.chunk.js",
     "static/js/2.aac7308d.chunk.js.map": "/KBSC-REACT/static/js/2.aac7308d.chunk.js.map",
     "index.html": "/KBSC-REACT/index.html",
-    "static/css/main.4e0d080f.chunk.css.map": "/KBSC-REACT/static/css/main.4e0d080f.chunk.css.map",
+    "static/css/main.96db8a83.chunk.css.map": "/KBSC-REACT/static/css/main.96db8a83.chunk.css.map",
     "static/js/2.aac7308d.chunk.js.LICENSE.txt": "/KBSC-REACT/static/js/2.aac7308d.chunk.js.LICENSE.txt",
     "static/media/Info.be23573c.pdf": "/KBSC-REACT/static/media/Info.be23573c.pdf",
     "static/media/InfoVideo.543e2f2e.mp4": "/KBSC-REACT/static/media/InfoVideo.543e2f2e.mp4",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.0a44b0e5.js",
     "static/js/2.aac7308d.chunk.js",
-    "static/css/main.4e0d080f.chunk.css",
-    "static/js/main.2d61a7d7.chunk.js"
+    "static/css/main.96db8a83.chunk.css",
+    "static/js/main.c20747c8.chunk.js"
   ]
 }
