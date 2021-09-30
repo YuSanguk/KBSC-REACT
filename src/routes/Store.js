@@ -75,7 +75,8 @@ const Store = ({ userObj }) => {
               (displayMode && item.creatorId === userObj.uid) ||
               (displayMode === false &&
                 viewBuy &&
-                item.price < userDb.point)) && (
+                item.price < userDb.point &&
+                item.creatorId !== userObj.uid)) && (
               <>
                 <Items key={item.id + "2"} itemObj={item} />
               </>

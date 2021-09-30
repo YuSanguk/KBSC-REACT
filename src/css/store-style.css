@@ -24,9 +24,9 @@ body {
 
 .store ul {
   list-style: none;
-  width: 100%;
+  width: 84%;
+  margin-left: 8% !important;
   padding-left: 0 !important;
-  margin-left: 0 !important;
 }
 
 .store ul li {

@@ -13,9 +13,15 @@ body {
   justify-content: center;
 }
 
+.UserHistory h2 {
+  margin-left: 9%;
+}
+
 .UserHistory ul {
+  width: 84%;
   list-style: none;
   margin: 0;
+  margin-left: 8% !important;
   padding: 0;
 }
 

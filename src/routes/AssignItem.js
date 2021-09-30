@@ -6,6 +6,7 @@ const AssignItem = ({ userObj }) => {
   const [itemTitle, setItemTitle] = useState("");
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
+  const [work, setWork] = useState(false);
 
   let userDb = [];
   const [userDetail, SetUserDetail] = useState([]);
@@ -34,8 +35,15 @@ const AssignItem = ({ userObj }) => {
   }
 
   const onSubmit = async event => {
-    if (nweet === "" || itemTitle === "") {
-    } else {
+    if (nweet === "" || itemTitle === "" || attachment === "" || num === "") {
+      event.preventDefault();
+      alert(
+        "제목, 내용글, 이미지 추가, 가격 설정을 모두 마쳤는지 확인해주세요"
+      );
+    } else if (isNaN(num) === true) {
+      event.preventDefault();
+      alert("가격을 정수로 입력해주세요");
+    } else if (work === false) {
       event.preventDefault();
       let attachmentUrl = "";
       if (attachment !== "") {
@@ -67,6 +75,7 @@ const AssignItem = ({ userObj }) => {
       });
       setNweet("");
       setAttachment("");
+      setWork(true);
       window.location.assign("#/store");
     }
   };
