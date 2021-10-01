@@ -190,6 +190,7 @@ const Mission = ({ userObj }) => {
   return (
     <>
       <div className="mission-Container">
+        <h2>Mission</h2>
         <div className="mission-Head">
           <p onClick={toMission} className={display ? "mission-select" : null}>
             Mission

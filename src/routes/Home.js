@@ -103,7 +103,7 @@ const Home = ({ userObj }) => {
                   onMouseLeave={() => setIsFlipped(prev => !prev)}
                   className="CardBack"
                 >
-                  <img src={userObj.photoURL} alt="hi" />
+                  <img src={userObj.photoURL} alt="userPhoto" />
                   <p>{nickName + " 님의 포인트"}</p>
                   <p>{point + " Point"}</p>
                 </div>

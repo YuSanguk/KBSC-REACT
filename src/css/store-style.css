@@ -14,8 +14,14 @@ body {
   margin-left: 20%;
 }
 
+.store > h2,
+.store > p,
+.store > .store-head {
+  transform: translateX(6vw);
+}
+
 .store-head {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

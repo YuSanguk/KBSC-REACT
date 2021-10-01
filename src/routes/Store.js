@@ -55,7 +55,7 @@ const Store = ({ userObj }) => {
 
   return (
     <div className="store">
-      <h3>STORE</h3>
+      <h2>STORE</h2>
       <p>상품등록권 : {userDb.LimitAssignItem} / 3 </p>
       <div className="store-head">
         <Link to="/store/item">상품등록하러 가기</Link>

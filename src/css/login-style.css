@@ -12,8 +12,19 @@ body {
   display: flex;
   justify-content: center;
   height: 100vh;
-  background-image: url(../sourceImg/login-background-img.jpg);
-  background-size: 100vw 100vh;
+  background: transparent;
+}
+
+.login-container > span {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+}
+
+.login-container > span > img {
+  position: absolute;
+  z-index: -1;
 }
 
 .login-button-container {

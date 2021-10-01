@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { scroller } from "react-scroll";
 import { Link } from "react-router-dom";
 import "../css/landing-style.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Video1 from "../sourceImg/InfoVideo.mp4";
 import Pdf from "../useing/Info.pdf";
+import img1 from "../sourceImg/main-i.webp";
 import { FaRegBell, FaQrcode } from "react-icons/fa";
 import { BiCommentError, BiStoreAlt, BiLogIn } from "react-icons/bi";
 
@@ -70,6 +72,13 @@ const Landing = () => {
         </div>
       </div>
       <div className="landing-1">
+        <LazyLoadImage
+          effect="blur"
+          alt="background"
+          height="100%"
+          width="100%"
+          src={img1}
+        />
         <nav>
           <ul className="landing-nav">
             <li className="landing-1-video">

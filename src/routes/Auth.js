@@ -1,6 +1,8 @@
 import React from "react";
 import { authService, firebaseInstance } from "fbase";
 import "../css/login-style.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import img2 from "../sourceImg/login.webp";
 import { FaArrowLeft, FaGoogle } from "react-icons/fa";
 
 const Auth = () => {
@@ -19,6 +21,13 @@ const Auth = () => {
   return (
     <>
       <div className="login-container">
+        <LazyLoadImage
+          alt="login-background"
+          width="100%"
+          height="100%"
+          effect="blur"
+          src={img2}
+        />
         <FaArrowLeft
           className="login-back"
           onClick={() => {
