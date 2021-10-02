@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/KBSC-REACT/static/css/main.42ac8a87.chunk.css",
-    "main.js": "/KBSC-REACT/static/js/main.b76cc10d.chunk.js",
-    "main.js.map": "/KBSC-REACT/static/js/main.b76cc10d.chunk.js.map",
+    "main.css": "/KBSC-REACT/static/css/main.2927ff74.chunk.css",
+    "main.js": "/KBSC-REACT/static/js/main.21e57284.chunk.js",
+    "main.js.map": "/KBSC-REACT/static/js/main.21e57284.chunk.js.map",
     "runtime-main.js": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js",
     "runtime-main.js.map": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js.map",
-    "static/js/2.aac7308d.chunk.js": "/KBSC-REACT/static/js/2.aac7308d.chunk.js",
-    "static/js/2.aac7308d.chunk.js.map": "/KBSC-REACT/static/js/2.aac7308d.chunk.js.map",
+    "static/js/2.92aa9a7b.chunk.js": "/KBSC-REACT/static/js/2.92aa9a7b.chunk.js",
+    "static/js/2.92aa9a7b.chunk.js.map": "/KBSC-REACT/static/js/2.92aa9a7b.chunk.js.map",
     "index.html": "/KBSC-REACT/index.html",
-    "static/css/main.42ac8a87.chunk.css.map": "/KBSC-REACT/static/css/main.42ac8a87.chunk.css.map",
-    "static/js/2.aac7308d.chunk.js.LICENSE.txt": "/KBSC-REACT/static/js/2.aac7308d.chunk.js.LICENSE.txt",
+    "static/css/main.2927ff74.chunk.css.map": "/KBSC-REACT/static/css/main.2927ff74.chunk.css.map",
+    "static/js/2.92aa9a7b.chunk.js.LICENSE.txt": "/KBSC-REACT/static/js/2.92aa9a7b.chunk.js.LICENSE.txt",
     "static/media/Info.be23573c.pdf": "/KBSC-REACT/static/media/Info.be23573c.pdf",
     "static/media/InfoVideo.543e2f2e.mp4": "/KBSC-REACT/static/media/InfoVideo.543e2f2e.mp4",
     "static/media/landing-style.css": "/KBSC-REACT/static/media/Landing-4.bd8e90fb.png",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0a44b0e5.js",
-    "static/js/2.aac7308d.chunk.js",
-    "static/css/main.42ac8a87.chunk.css",
-    "static/js/main.b76cc10d.chunk.js"
+    "static/js/2.92aa9a7b.chunk.js",
+    "static/css/main.2927ff74.chunk.css",
+    "static/js/main.21e57284.chunk.js"
   ]
 }
