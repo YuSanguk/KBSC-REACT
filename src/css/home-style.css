@@ -11,6 +11,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
 
 body {
   padding: 0;
@@ -89,25 +96,6 @@ body {
   height: calc(40vh + 1vh + 2px) !important;
 }
 
-.CardInfo {
-  top: 0;
-  left: 0;
-  right: 0;
-  font-size: 0.8rem;
-  transform: translateY(calc(41vh + 4px - 100%))
-    translateX(calc(41vh - 100% + 4px));
-  width: 25% !important;
-  border-radius: 100% 0% 0% 100% / 100% 30% 70% 0%;
-  height: 25% !important;
-  text-align: right;
-  white-space: pre;
-  color: white;
-  background: #2e303d;
-  position: absolute;
-  opacity: 0.95;
-  transition: 0.12s ease-in-out;
-}
-
 .CardFront:hover .CardInfo {
   opacity: 0;
   transition: 0.12s ease-in-out;
@@ -131,6 +119,9 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-family: "Pretendard-Regular";
+  font-weight: 400;
+  font-style: normal;
 }
 
 .home-nav li svg {

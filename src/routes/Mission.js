@@ -50,6 +50,11 @@ const Mission = ({ userObj }) => {
 
   const [onEval, setOnEval] = useState(false);
   const [CheckingData, setCheckingData] = useState("");
+
+  const getDate = () => {
+    const day = new Date();
+    return day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
+  };
   let DisplayData = [];
   useEffect(() => {
     dbService
@@ -98,6 +103,14 @@ const Mission = ({ userObj }) => {
                   clearMission: clearArray,
                   point: point + 50,
                   recentlyEdit: Date.now(),
+                });
+
+                const today = getDate();
+                await dbService.collection("userHistory").add({
+                  creatorId: userObj.uid,
+                  createdAt: Date.now(),
+                  createdDay: today,
+                  whatDid: "포인트 획득",
                 });
 
                 await storageService
@@ -168,9 +181,12 @@ const Mission = ({ userObj }) => {
         missionList: main3_arr,
         ReRoll: ReRoll - 1,
       });
+
+      const today = getDate();
       await dbService.collection("userHistory").add({
         creatorId: userObj.uid,
         createdAt: Date.now(),
+        createdDay: today,
         whatDid: "미션 변경",
       });
     } else {
@@ -193,17 +209,17 @@ const Mission = ({ userObj }) => {
         <h2>Mission</h2>
         <div className="mission-Head">
           <p onClick={toMission} className={display ? "mission-select" : null}>
-            Mission
+            미션 목록
           </p>
           <p onClick={toEvalute} className={display ? null : "mission-select"}>
-            Evalute
+            평가하기
           </p>
         </div>
         <div className="mission-body">
           {display ? (
             <>
               <div className="mission-middle-box">
-                <p>Mission Re:Roll : {userDb.ReRoll} / 2</p>
+                <p>미션 바꾸기 : {userDb.ReRoll} / 2</p>
                 <button onClick={reroll}>ReRoll</button>
               </div>
               <ul>

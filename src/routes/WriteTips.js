@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
 import { v4 as uuidv4 } from "uuid";
+import "../css/writeTip-style.css";
 
 const WriteTip = ({ userObj }) => {
   const [tipTitle, setTipTitle] = useState("");
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
+
+  const getDate = () => {
+    const day = new Date();
+    return day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
+  };
+
   const onSubmit = async event => {
     if (nweet === "" || tipTitle === "") {
+      alert("제목과 내용을 모두 추가해주세요");
     } else {
       event.preventDefault();
       let attachmentUrl = "";
@@ -26,11 +34,13 @@ const WriteTip = ({ userObj }) => {
         creatorId: userObj.uid,
         attachmentUrl,
       };
+      const today = getDate();
       await dbService.collection("tips").add(nweetObj);
       await dbService.collection("userHistory").add({
         creatorId: userObj.uid,
         createdAt: Date.now(),
-        whatDid: "WriteTip",
+        whatDid: "글 작성",
+        createdDay: today,
       });
       setNweet("");
       setAttachment("");
@@ -56,44 +66,71 @@ const WriteTip = ({ userObj }) => {
     const {
       target: { files },
     } = event;
-    const theFile = files[0];
-    const reader = new FileReader();
-    reader.onloadend = finishedEvent => {
-      const {
-        currentTarget: { result },
-      } = finishedEvent;
-      setAttachment(result);
-    };
-    reader.readAsDataURL(theFile);
+    try {
+      const theFile = files[0];
+      const reader = new FileReader();
+      reader.onloadend = finishedEvent => {
+        const {
+          currentTarget: { result },
+        } = finishedEvent;
+        setAttachment(result);
+      };
+      reader.readAsDataURL(theFile);
+    } catch (e) {
+      setAttachment("");
+    }
   };
 
-  const OnClearPhoto = () => setAttachment("");
+  const OnClearPhoto = () => {
+    setAttachment("");
+    document.querySelector(".image-input").value = "";
+  };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        value={tipTitle}
-        onChange={onChangeTitle}
-        type="text"
-        placeholder="Title"
-        maxLength={30}
-      />
-      <input
-        value={nweet}
-        onChange={onChange}
-        type="text"
-        placeholder="What?"
-        maxLength={120}
-      />
-      <input type="file" onChange={onImageChange} accept="image/*" />
-      <input type="submit" value="Up" />
+    <div className="writeTip-container">
+      <h2>글 작성</h2>
+      <div className="writeTip-in">
+        <div className="writeTip-inner">
+          <p>제목</p>
+          <p>내용</p>
+          <p>사진 등록</p>
+          <p>-</p>
+        </div>
+        <form onSubmit={onSubmit} className="writeTip-form">
+          <input
+            value={tipTitle}
+            onChange={onChangeTitle}
+            type="text"
+            placeholder="Title"
+            maxLength={30}
+          />
+          <input
+            value={nweet}
+            onChange={onChange}
+            type="text"
+            placeholder="What?"
+            maxLength={120}
+          />
+          <input
+            type="file"
+            className="image-input"
+            onChange={onImageChange}
+            accept="image/*"
+          />
+          <input type="submit" value="Up" />
+        </form>
+      </div>
+
       {attachment && (
-        <div>
-          <img src={attachment} alt="write" width="50px" height="50px" />
-          <button onClick={OnClearPhoto}>Clear</button>
+        <div className="writeTip-img-container">
+          <p>사진 미리보기</p>
+          <div>
+            <img src={attachment} alt="write" width="400px" height="200px" />
+            <button onClick={OnClearPhoto}>이미지 제거</button>
+          </div>
         </div>
       )}
-    </form>
+    </div>
   );
 };
 

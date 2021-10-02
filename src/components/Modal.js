@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { dbService, storageService } from "fbase";
+import "../css/modal-style.css";
 
 const Modal = ({ userObj }) => {
   const value = window.location.href.split("?id=")[1];
@@ -27,13 +28,25 @@ const Modal = ({ userObj }) => {
     }
   }
 
+  const getDate = () => {
+    const day = new Date();
+    return day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
+  };
+
   const OnDeleateClcik = async () => {
-    const ok = window.confirm("Are you Sure to delete tips?");
+    const ok = window.confirm("해당 글을 삭제하시겠습니까??");
     if (ok) {
+      const today = getDate();
       await dbService.doc(`tips/${nweets[pos].id}`).delete();
       if (nweets[pos].attachmentUrl !== "") {
         await storageService.refFromURL(nweets[pos].attachmentUrl).delete();
       }
+      await dbService.collection("userHistory").add({
+        creatorId: userObj.uid,
+        createdAt: Date.now(),
+        createdDay: today,
+        whatDid: "글 삭제",
+      });
       window.location.assign("");
     }
   };
@@ -41,26 +54,28 @@ const Modal = ({ userObj }) => {
   return (
     <>
       <nav>
-        <ul>
+        <ul className="modal-ul">
           <li>
             <Link to="/community">Go Back</Link>
           </li>
         </ul>
       </nav>
-      <div>
+      {work && nweets[pos].creatorId === userObj.uid && (
+        <button className="modal-delete" onClick={OnDeleateClcik}>
+          글 삭제
+        </button>
+      )}
+      <div className="modal-container">
         {work && (
           <>
-            {nweets[pos].creatorId === userObj.uid && (
-              <button onClick={OnDeleateClcik}>Delete</button>
-            )}
             <h4>{nweets[pos].title}</h4>
             <p>{nweets[pos].text}</p>
             {nweets[pos].attachmentUrl !== "" && (
               <img
                 alt="modal"
                 src={nweets[pos].attachmentUrl}
-                height="70px"
-                width="70px"
+                height="300px"
+                width="600px"
               ></img>
             )}
           </>

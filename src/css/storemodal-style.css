@@ -1,0 +1,45 @@
+.storeModal-container {
+  display: flex;
+}
+
+.storeModal-container img {
+  object-fit: contain;
+}
+
+.storeModal-1 {
+  width: 48vw;
+  height: 70vh;
+  font-size: 2rem;
+}
+
+.storeModal-1 p {
+  transform: translateX(-7vw);
+  text-align: right;
+}
+
+.storeModal-1 hr {
+  width: 95%;
+  color: rgba(0, 0, 0, 0.28);
+}
+
+.storeModal-2 {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 48vw;
+}
+
+.storeModal-2 div {
+  width: 50%;
+  transform: translateY(-30vh) translateX(5vw);
+}
+
+.storeModal-2 p {
+  width: 70%;
+  margin: 0 !important;
+}
+
+.storeModal-2 button {
+  width: 60px;
+}

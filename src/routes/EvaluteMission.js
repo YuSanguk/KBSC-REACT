@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { dbService } from "fbase";
+import "../css/eval-style.css";
 
 const EvalutePage = ({ userObj }) => {
   const id = window.location.href.split("?id=")[1];
@@ -64,6 +64,11 @@ const EvalutePage = ({ userObj }) => {
     setNum(value);
   };
 
+  const getDate = () => {
+    const day = new Date();
+    return day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
+  };
+
   const onSubmit = async event => {
     if (num !== "" && num >= 0 && num < 10) {
       event.preventDefault();
@@ -71,6 +76,7 @@ const EvalutePage = ({ userObj }) => {
       const sum = Number(data.sum) + Number(num);
       let who = data.who;
       who.push(userObj.uid);
+      const today = getDate();
       await dbService.doc(`Checking/${data.id}`).update({
         people: people,
         sum: sum,
@@ -79,6 +85,7 @@ const EvalutePage = ({ userObj }) => {
       await dbService.collection("userHistory").add({
         creatorId: userObj.uid,
         createdAt: Date.now(),
+        createdDay: today,
         whatDid: "미션 평가",
       });
       setNum(0);
@@ -90,13 +97,19 @@ const EvalutePage = ({ userObj }) => {
   };
 
   return (
-    <>
-      <Link to="/mission">back</Link>
+    <div className="eval-container">
+      <h2>미션 평가하기</h2>
       {worked && (
-        <>
-          <div>{user_mission}</div>
-          <div>{data.text}</div>
-        </>
+        <div>
+          <p>{"유저의 미션 : " + user_mission}</p>
+          <p>{"미션 결과 : " + data.text}</p>
+          <img
+            src={data.attachmentUrl}
+            alt="write"
+            width="400px"
+            height="200px"
+          />
+        </div>
       )}
 
       <form onSubmit={onSubmit}>
@@ -110,7 +123,7 @@ const EvalutePage = ({ userObj }) => {
         />
         <input type="submit" value="Up" />
       </form>
-    </>
+    </div>
   );
 };
 

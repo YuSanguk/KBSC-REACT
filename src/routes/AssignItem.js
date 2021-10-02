@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { dbService, storageService } from "fbase";
 import { v4 as uuidv4 } from "uuid";
+import "../css/assign-item-style.css";
 
 const AssignItem = ({ userObj }) => {
   const [itemTitle, setItemTitle] = useState("");
@@ -34,6 +35,11 @@ const AssignItem = ({ userObj }) => {
     window.location.assign("");
   }
 
+  const getDate = () => {
+    const day = new Date();
+    return day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
+  };
+
   const onSubmit = async event => {
     if (nweet === "" || itemTitle === "" || attachment === "" || num === "") {
       event.preventDefault();
@@ -62,11 +68,14 @@ const AssignItem = ({ userObj }) => {
         attachmentUrl,
         price: num,
       };
+
+      const today = getDate();
       await dbService.collection("StoreItems").add(nweetObj);
       await dbService.collection("userHistory").add({
         creatorId: userObj.uid,
         createdAt: Date.now(),
         whatDid: "상품 등록",
+        createdDay: today,
       });
 
       const LimitAssignItemValue = Number(userDb.LimitAssignItem) - 1;
@@ -98,18 +107,25 @@ const AssignItem = ({ userObj }) => {
     const {
       target: { files },
     } = event;
-    const theFile = files[0];
-    const reader = new FileReader();
-    reader.onloadend = finishedEvent => {
-      const {
-        currentTarget: { result },
-      } = finishedEvent;
-      setAttachment(result);
-    };
-    reader.readAsDataURL(theFile);
+    try {
+      const theFile = files[0];
+      const reader = new FileReader();
+      reader.onloadend = finishedEvent => {
+        const {
+          currentTarget: { result },
+        } = finishedEvent;
+        setAttachment(result);
+      };
+      reader.readAsDataURL(theFile);
+    } catch (e) {
+      setAttachment("");
+    }
   };
 
-  const OnClearPhoto = () => setAttachment("");
+  const OnClearPhoto = () => {
+    setAttachment("");
+    document.querySelector(".image-input").value = "";
+  };
 
   const CheckNumber = event => {
     if (event.key >= 0 && event.key <= 9) {
@@ -133,37 +149,57 @@ const AssignItem = ({ userObj }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        value={itemTitle}
-        onChange={onChangeTitle}
-        type="text"
-        placeholder="Title"
-        maxLength={30}
-      />
-      <input
-        value={nweet}
-        onChange={onChange}
-        type="text"
-        placeholder="What?"
-        maxLength={120}
-      />
-      <input
-        type="text"
-        value={num}
-        onKeyDown={CheckNumber}
-        onChange={CheckSize}
-        placeholder="Point 가격"
-      />
-      <input type="file" onChange={onImageChange} accept="image/*" />
-      <input type="submit" value="Up" />
+    <div className="assign-item-container">
+      <h2>상품 등록</h2>
+      <div className="assign-item-in">
+        <div className="assign-item-inner">
+          <p>상품명</p>
+          <p>상품 설명</p>
+          <p>상품 가격</p>
+          <p>이미지 등록</p>
+          <p>.</p>
+        </div>
+        <form onSubmit={onSubmit}>
+          <input
+            value={itemTitle}
+            onChange={onChangeTitle}
+            type="text"
+            placeholder="Title"
+            maxLength={30}
+          />
+          <input
+            value={nweet}
+            onChange={onChange}
+            type="text"
+            placeholder="What?"
+            maxLength={120}
+          />
+          <input
+            type="text"
+            value={num}
+            onKeyDown={CheckNumber}
+            onChange={CheckSize}
+            placeholder="Point 가격"
+          />
+          <input
+            type="file"
+            className="image-input"
+            onChange={onImageChange}
+            accept="image/*"
+          />
+          <input type="submit" value="Up" />
+        </form>
+      </div>
       {attachment && (
-        <div>
-          <img src={attachment} alt="write" width="50px" height="50px" />
-          <button onClick={OnClearPhoto}>Clear</button>
+        <div className="assign-item-img">
+          <p>사진 미리보기</p>
+          <div>
+            <img src={attachment} alt="write" width="400px" height="200px" />
+            <button onClick={OnClearPhoto}>Clear</button>
+          </div>
         </div>
       )}
-    </form>
+    </div>
   );
 };
 

@@ -113,7 +113,7 @@ const Landing = () => {
             </li>
             <li onClick={() => toggle(0)}>
               <FaRegBell />
-              <p>mission</p>
+              <p>Mission</p>
             </li>
             <li onClick={() => toggle(1)}>
               <BiCommentError />

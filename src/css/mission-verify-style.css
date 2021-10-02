@@ -1,0 +1,63 @@
+.mission-verify-container {
+  margin-top: 7%;
+  width: 40%;
+  margin-left: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mission-verify-container h2:nth-child(1) {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.mission-verify-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1vw;
+}
+
+.mission-verify-inner p:last-child {
+  color: transparent;
+}
+
+.mission-verify-inner div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+
+.mission-verify-inner p {
+  margin: 0;
+}
+
+.mission-verify-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.mission-verify-img-container {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mission-verify-img-container div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mission-verify-img-container img {
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mission-verify-img-container button {
+  height: 30px;
+  width: 120px;
+}

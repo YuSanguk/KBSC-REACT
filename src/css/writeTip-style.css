@@ -1,0 +1,75 @@
+.writeTip-container {
+  margin-top: 5%;
+  width: 40%;
+  margin-left: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.writeTip-container h2:nth-child(1) {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.writeTip-in {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.writeTip-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 1vw;
+  margin: 0 !important;
+}
+
+.writeTip-inner p {
+  margin: 0;
+}
+
+.writeTip-inner p:nth-child(3) {
+  transform: translateY(13vh);
+}
+
+.writeTip-inner p:last-child {
+  color: transparent;
+}
+
+.writeTip-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1vw;
+  margin: 0 !important;
+}
+
+.writeTip-form input:nth-child(2) {
+  height: 15vh;
+}
+
+.writeTip-img-container {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.writeTip-img-container div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.writeTip-img-container img {
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.writeTip-img-container button {
+  height: 30px;
+  width: 120px;
+}

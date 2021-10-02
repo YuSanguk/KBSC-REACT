@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Recipekorea";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -39,7 +63,7 @@ body {
 .landing-navigator {
   position: fixed;
   top: 40vh;
-  left: 84vw;
+  left: 81vw;
 }
 
 .landing-navigator ul {
@@ -51,6 +75,9 @@ body {
 .landing-navigator ul li {
   cursor: pointer;
   margin-bottom: 1vh;
+  font-family: "Cafe24Ssurround";
+  font-weight: normal;
+  font-style: normal;
 }
 
 .landing-1 {
@@ -132,6 +159,7 @@ body {
   align-items: center;
 }
 
+/* 아이콘 사이즈 */
 .landing-nav li svg {
   height: 6vh;
   width: 6vh;
@@ -141,6 +169,9 @@ body {
   margin-top: 1.7vh !important;
   margin-bottom: 0;
   font-size: 2.3vh;
+  font-family: "Pretendard-Regular";
+  font-weight: 400;
+  font-style: normal;
 }
 
 .landing-1-video video {
@@ -194,6 +225,13 @@ body {
   color: white !important;
 }
 
+.landing-1-video div p,
+.landing-toLogin a {
+  font-family: "Pretendard-Regular";
+  font-weight: 400;
+  font-style: normal;
+}
+
 .landing-toLogin:active {
   background: midnightblue;
   transition: 0.3s;
@@ -220,6 +258,14 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.9em;
+}
+
+.landing-2 p,
+.landing-3 p,
+.landing-4 p {
+  font-family: "Recipekorea";
+  font-weight: normal;
+  font-style: normal;
 }
 
 .landing-2-container * {
@@ -298,7 +344,10 @@ body {
 .landing-footer * {
   text-decoration: none;
   color: black;
-  font-size: 2vh;
+  font-size: 1rem;
+  font-family: "Pretendard-Regular";
+  font-weight: 400;
+  font-style: normal;
 }
 
 .landing-footer a {

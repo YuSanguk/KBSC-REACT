@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { dbService, storageService } from "fbase";
 import { v4 as uuidv4 } from "uuid";
+import "../css/mission-verify-style.css";
 
 const AssignVerify = ({ userObj }) => {
   const MissionCode = window.location.href.split("?id=")[1];
@@ -63,21 +64,34 @@ const AssignVerify = ({ userObj }) => {
     const {
       target: { files },
     } = event;
-    const theFile = files[0];
-    const reader = new FileReader();
-    reader.onloadend = finishedEvent => {
-      const {
-        currentTarget: { result },
-      } = finishedEvent;
-      setAttachment(result);
-    };
-    reader.readAsDataURL(theFile);
+    try {
+      const theFile = files[0];
+      const reader = new FileReader();
+      reader.onloadend = finishedEvent => {
+        const {
+          currentTarget: { result },
+        } = finishedEvent;
+        setAttachment(result);
+      };
+      reader.readAsDataURL(theFile);
+    } catch (e) {
+      setAttachment("");
+    }
   };
 
-  const OnClearPhoto = () => setAttachment("");
+  const OnClearPhoto = () => {
+    setAttachment("");
+    document.querySelector(".image_input").value = "";
+  };
+
+  const getDate = () => {
+    const day = new Date();
+    return day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
+  };
 
   const onSubmit = async event => {
-    if (nweet === "") {
+    if (nweet === "" || attachment === "") {
+      alert("미션 결과와 사진을 모두 추가해주세요");
     } else {
       event.preventDefault();
       let attachmentUrl = "";
@@ -85,10 +99,12 @@ const AssignVerify = ({ userObj }) => {
         const attachmentRef = storageService.ref().child(`tips/${uuidv4()}`);
         const response = await attachmentRef.putString(attachment, "data_url");
         attachmentUrl = await response.ref.getDownloadURL();
+        const today = getDate();
         await dbService.collection("userHistory").add({
           creatorId: userObj.uid,
           createdAt: Date.now(),
           whatDid: "미션 인증 신청",
+          createdDay: today,
         });
       }
 
@@ -116,18 +132,35 @@ const AssignVerify = ({ userObj }) => {
 
   return (
     <>
-      <p>{"미션 - " + head}</p>
-      <form onSubmit={onSubmit}>
-        <input onChange={onChange} type="text" placeholder="Input Text" />
-        <input type="file" onChange={onImageChange} accept="image/*" />
-        <input type="submit" value="인증 신청" />
-      </form>
-      {attachment && (
-        <div>
-          <img src={attachment} alt="write" width="50px" height="50px" />
-          <button onClick={OnClearPhoto}>Clear</button>
+      <div className="mission-verify-container">
+        <h2>{"미션 : " + head}</h2>
+        <div className="mission-verify-inner">
+          <div>
+            <p>미션 결과</p>
+            <p>사진등록</p>
+            <p>-</p>
+          </div>
+          <form onSubmit={onSubmit}>
+            <input onChange={onChange} type="text" placeholder="Input Text" />
+            <input
+              type="file"
+              className="image_input"
+              onChange={onImageChange}
+              accept="image/*"
+            />
+            <input type="submit" value="인증 신청" />
+          </form>
         </div>
-      )}
+        {attachment && (
+          <div className="mission-verify-img-container">
+            <p>사진 미리보기</p>
+            <div>
+              <img src={attachment} alt="write" width="400px" height="200px" />
+              <button onClick={OnClearPhoto}>이미지 제거</button>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };

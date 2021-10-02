@@ -93,11 +93,6 @@ const Home = ({ userObj }) => {
                   className="CardFront"
                 >
                   <p>Display Left Time</p>
-                  <div className="CardInfo">
-                    On
-                    <br />
-                    Mouse
-                  </div>
                 </div>
                 <div
                   onMouseLeave={() => setIsFlipped(prev => !prev)}
@@ -116,7 +111,7 @@ const Home = ({ userObj }) => {
             <li>
               <Link to="/mission">
                 <FaRegBell />
-                <p>mission</p>
+                <p>Mission</p>
               </Link>
             </li>
             <li>

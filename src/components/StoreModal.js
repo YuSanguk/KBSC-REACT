@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { dbService } from "fbase";
+import "../css/storemodal-style.css";
 
 const StoreModal = ({ userObj }) => {
   const value = window.location.href.split("?id=")[1];
@@ -78,16 +79,26 @@ const StoreModal = ({ userObj }) => {
           </li>
         </ul>
       </nav>
-      <div>
+      <div className="storeModal-container">
         {worked && (
           <>
-            <h4>{itemObj[pos_].title}</h4>
-            <p>{itemObj[pos_].text}</p>
-            {itemObj[pos_].attachmentUrl !== "" && (
-              <img alt="StoreModal" src={itemObj[pos_].attachmentUrl}></img>
-            )}
-            <p>{itemObj[pos_].price + " point"}</p>
-            <button onClick={onBuy}>BUY</button>
+            <div className="storeModal-1">
+              <p>{itemObj[pos_].title}</p>
+              <hr />
+              <img
+                alt="StoreModal"
+                width="800px"
+                height="500px"
+                src={itemObj[pos_].attachmentUrl}
+              ></img>
+            </div>
+            <div className="storeModal-2">
+              <div>
+                <p>{itemObj[pos_].text}</p>
+                <p>{itemObj[pos_].price + " point"}</p>
+                <button onClick={onBuy}>BUY</button>
+              </div>
+            </div>
           </>
         )}
       </div>

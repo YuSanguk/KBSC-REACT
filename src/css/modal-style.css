@@ -1,0 +1,31 @@
+.modal-ul {
+  list-style: none;
+}
+
+.modal-ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.modal-delete {
+  transform: translateX(75vw) translateY(5vh);
+  transition: 0.4s ease-in-out;
+}
+
+.modal-delete:hover {
+  background: rgba(170, 170, 170, 1);
+  transition: 0.4s ease-in-out;
+}
+
+.modal-container {
+  transform: translateY(6vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container img {
+  transform: translateY(2vh);
+  object-fit: contain;
+}
