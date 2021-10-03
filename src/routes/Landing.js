@@ -8,6 +8,7 @@ import Pdf from "../useing/Info.pdf";
 import img1 from "../sourceImg/main-i.webp";
 import { FaRegBell, FaQrcode } from "react-icons/fa";
 import { BiCommentError, BiStoreAlt, BiLogIn } from "react-icons/bi";
+import Qr from "../sourceImg/QR-ZIGUZAGU.png";
 
 const Landing = () => {
   const [mode, setMode] = useState(true);
@@ -99,10 +100,25 @@ const Landing = () => {
                       </p>
                     </div>
                   ) : (
-                    <div>
-                      <h1>{text[num].main}</h1>
-                      <p>{text[num].text}</p>
-                    </div>
+                    <>
+                      {num === 3 ? (
+                        <div>
+                          <h1>{text[num].main}</h1>
+                          <p>{text[num].text}</p>
+                          <img
+                            width="100px"
+                            height="100px"
+                            src={Qr}
+                            alt="qr"
+                          ></img>
+                        </div>
+                      ) : (
+                        <div>
+                          <h1>{text[num].main}</h1>
+                          <p>{text[num].text}</p>
+                        </div>
+                      )}
+                    </>
                   )}
                 </>
               )}
