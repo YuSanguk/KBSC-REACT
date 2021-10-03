@@ -5,6 +5,7 @@ const Nweet = ({ nweetObj }) => {
     <>
       <div>
         <h4>{nweetObj.title}</h4>
+        <p>{nweetObj.createdDate}</p>
       </div>
     </>
   );

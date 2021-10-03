@@ -25,6 +25,7 @@ const WriteTip = ({ userObj }) => {
         attachmentUrl = await response.ref.getDownloadURL();
       }
 
+      const today = getDate();
       const nweetObj = {
         title: tipTitle,
         text: nweet,
@@ -33,8 +34,8 @@ const WriteTip = ({ userObj }) => {
         // 새로운 데이터를 DB에 올리면 DB 공간이 낭비되므로 함수를 추가하여 연산하는 것이 이상적일것같음.
         creatorId: userObj.uid,
         attachmentUrl,
+        createdDate: today,
       };
-      const today = getDate();
       await dbService.collection("tips").add(nweetObj);
       await dbService.collection("userHistory").add({
         creatorId: userObj.uid,

@@ -40,6 +40,10 @@ body {
   align-items: center;
 }
 
+.store img {
+  object-fit: contain;
+}
+
 .store ul {
   list-style: none;
   width: 84%;
@@ -63,4 +67,20 @@ body {
   height: 1px;
   background: rgba(0, 0, 0, 0.2);
   margin: 0;
+}
+
+.store a {
+  text-decoration: none;
+  color: black;
+}
+
+.store a:active {
+  text-decoration: none;
+  color: darkorange;
+}
+
+.community-head a:nth-child(1) {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 3px;
+  border-radius: 5px;
 }

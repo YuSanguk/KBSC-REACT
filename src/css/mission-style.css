@@ -87,6 +87,7 @@ body {
 }
 
 .mission-Container ul {
+  margin-top: 1% !important;
   width: 84%;
   margin: 0;
   padding: 0;
@@ -99,7 +100,12 @@ body {
 
 .mission-Container ul li a {
   text-decoration: none;
+  color: black;
   margin: 0;
+}
+
+.mission-Container ul li a:active {
+  color: darkorange;
 }
 
 .mission-Container ul li * {

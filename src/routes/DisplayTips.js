@@ -29,7 +29,7 @@ const DisplayTips = ({ userObj }) => {
   return (
     <>
       <div className="community-head">
-        <Link to="/community/write">Write</Link>
+        <Link to="/community/write">글 작성</Link>
         <button onClick={toggleDisplay}>
           {displayMode ? "내 글" : "모든 글"}
         </button>

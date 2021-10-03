@@ -245,7 +245,7 @@ const Mission = ({ userObj }) => {
                 </>
               ) : (
                 <li>
-                  <p className="mission-no">"미션이 없습니다"</p>
+                  <p className="mission-no">"평가 가능한 미션이 없습니다"</p>
                 </li>
               )}
             </ul>

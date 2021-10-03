@@ -73,7 +73,7 @@ const StoreModal = ({ userObj }) => {
   return (
     <>
       <nav>
-        <ul>
+        <ul className="storeModal-ul">
           <li>
             <Link to="/store">Go Back</Link>
           </li>
