@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.3d7d07d8.chunk.css",
-    "main.js": "/static/js/main.23d6e2cd.chunk.js",
-    "main.js.map": "/static/js/main.23d6e2cd.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.b321cad2.js",
-    "runtime-main.js.map": "/static/js/runtime-main.b321cad2.js.map",
-    "static/js/2.c72c3462.chunk.js": "/static/js/2.c72c3462.chunk.js",
-    "static/js/2.c72c3462.chunk.js.map": "/static/js/2.c72c3462.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.3d7d07d8.chunk.css.map": "/static/css/main.3d7d07d8.chunk.css.map",
-    "static/js/2.c72c3462.chunk.js.LICENSE.txt": "/static/js/2.c72c3462.chunk.js.LICENSE.txt",
-    "static/media/Info.be23573c.pdf": "/static/media/Info.be23573c.pdf",
-    "static/media/InfoVideo.543e2f2e.mp4": "/static/media/InfoVideo.543e2f2e.mp4",
-    "static/media/landing-style.css": "/static/media/Landing-4.bd8e90fb.png",
-    "static/media/home-style.css": "/static/media/main-background-img.b73ad35f.jpg",
-    "static/media/login.938b6670.webp": "/static/media/login.938b6670.webp",
-    "static/media/main-i.8c4df54e.webp": "/static/media/main-i.8c4df54e.webp",
-    "static/media/subTab-background.16b48a60.svg": "/static/media/subTab-background.16b48a60.svg"
+    "main.css": "/KBSC-REACT/static/css/main.eab61a15.chunk.css",
+    "main.js": "/KBSC-REACT/static/js/main.23d6e2cd.chunk.js",
+    "main.js.map": "/KBSC-REACT/static/js/main.23d6e2cd.chunk.js.map",
+    "runtime-main.js": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js",
+    "runtime-main.js.map": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js.map",
+    "static/js/2.3672cece.chunk.js": "/KBSC-REACT/static/js/2.3672cece.chunk.js",
+    "static/js/2.3672cece.chunk.js.map": "/KBSC-REACT/static/js/2.3672cece.chunk.js.map",
+    "index.html": "/KBSC-REACT/index.html",
+    "static/css/main.eab61a15.chunk.css.map": "/KBSC-REACT/static/css/main.eab61a15.chunk.css.map",
+    "static/js/2.3672cece.chunk.js.LICENSE.txt": "/KBSC-REACT/static/js/2.3672cece.chunk.js.LICENSE.txt",
+    "static/media/Info.be23573c.pdf": "/KBSC-REACT/static/media/Info.be23573c.pdf",
+    "static/media/InfoVideo.543e2f2e.mp4": "/KBSC-REACT/static/media/InfoVideo.543e2f2e.mp4",
+    "static/media/landing-style.css": "/KBSC-REACT/static/media/Landing-4.bd8e90fb.png",
+    "static/media/home-style.css": "/KBSC-REACT/static/media/main-background-img.b73ad35f.jpg",
+    "static/media/login.938b6670.webp": "/KBSC-REACT/static/media/login.938b6670.webp",
+    "static/media/main-i.8c4df54e.webp": "/KBSC-REACT/static/media/main-i.8c4df54e.webp",
+    "static/media/subTab-background.16b48a60.svg": "/KBSC-REACT/static/media/subTab-background.16b48a60.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b321cad2.js",
-    "static/js/2.c72c3462.chunk.js",
-    "static/css/main.3d7d07d8.chunk.css",
+    "static/js/runtime-main.0a44b0e5.js",
+    "static/js/2.3672cece.chunk.js",
+    "static/css/main.eab61a15.chunk.css",
     "static/js/main.23d6e2cd.chunk.js"
   ]
 }
