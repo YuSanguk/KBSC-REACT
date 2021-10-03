@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/KBSC-REACT/static/css/main.a0f78c60.chunk.css",
-    "main.js": "/KBSC-REACT/static/js/main.9b351a42.chunk.js",
-    "main.js.map": "/KBSC-REACT/static/js/main.9b351a42.chunk.js.map",
+    "main.js": "/KBSC-REACT/static/js/main.23d6e2cd.chunk.js",
+    "main.js.map": "/KBSC-REACT/static/js/main.23d6e2cd.chunk.js.map",
     "runtime-main.js": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js",
     "runtime-main.js.map": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js.map",
     "static/js/2.3672cece.chunk.js": "/KBSC-REACT/static/js/2.3672cece.chunk.js",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.0a44b0e5.js",
     "static/js/2.3672cece.chunk.js",
     "static/css/main.a0f78c60.chunk.css",
-    "static/js/main.9b351a42.chunk.js"
+    "static/js/main.23d6e2cd.chunk.js"
   ]
 }
