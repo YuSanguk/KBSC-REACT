@@ -105,13 +105,15 @@ const WriteTip = ({ userObj }) => {
             placeholder="Title"
             maxLength={30}
           />
-          <input
-            value={nweet}
-            onChange={onChange}
-            type="text"
-            placeholder="What?"
-            maxLength={120}
-          />
+          <label>
+            <textarea
+              value={nweet}
+              onChange={onChange}
+              type="textarea"
+              placeholder="What?"
+              maxLength={400}
+            ></textarea>
+          </label>
           <input
             type="file"
             className="image-input"

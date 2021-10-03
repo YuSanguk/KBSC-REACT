@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fbase";
+import { Helmet } from "react-helmet";
 
-function App() {
+const App = () => {
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
@@ -24,6 +25,9 @@ function App() {
     <>
       {init ? (
         <>
+          <Helmet>
+            <title>지구자구</title>
+          </Helmet>
           <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
         </>
       ) : (
@@ -32,6 +36,6 @@ function App() {
       {/* <footer>&copy; {new Date().getFullYear()} CLEAN</footer> */}
     </>
   );
-}
+};
 
 export default App;

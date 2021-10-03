@@ -84,3 +84,9 @@ body {
   padding: 3px;
   border-radius: 5px;
 }
+
+.store img:last-child {
+  z-index: -1;
+  top: -20px;
+  position: fixed;
+}

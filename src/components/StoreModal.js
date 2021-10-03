@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 import "../css/storemodal-style.css";
 
 const StoreModal = ({ userObj }) => {
@@ -49,20 +49,41 @@ const StoreModal = ({ userObj }) => {
     }
   }
 
+  const getDate = () => {
+    const day = new Date();
+    return day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
+  };
+
   const onBuy = async () => {
     if (userDb.point >= itemObj[pos_].price) {
       if (itemObj[pos_].creatorId === userObj.uid) {
         alert("자신의 상품은 구매할 수 없습니다.");
         window.location.assign("");
       } else {
-        alert(
-          "테스트기간입니다. 상품은 배송되지 않습니다. (유저 포인트 및 해당 상품은 사라집니다)"
+        const ans = window.confirm(
+          "구매하시겠습니까? 테스트기간입니다. 상품은 배송되지 않습니다. (유저 포인트 및 해당 상품은 사라집니다)"
         );
-        await dbService.doc(`users/${userObj.uid}`).update({
-          point: userDb.point - itemObj[pos_].price,
-        });
-        // 아이템 삭제를 할때, 이미지를 먼저 삭제하고, 데이터를 삭제한다
-        window.location.assign("");
+        if (ans) {
+          await dbService.doc(`users/${userObj.uid}`).update({
+            point: userDb.point - itemObj[pos_].price,
+          });
+          if (itemObj[pos_].attachmentUrl !== "") {
+            await storageService
+              .refFromURL(itemObj[pos_].attachmentUrl)
+              .delete();
+          }
+          await dbService.doc(`StoreItems/${value}`).delete();
+          // 아이템 삭제를 할때, 이미지를 먼저 삭제하고, 데이터를 삭제한다
+          window.location.assign("");
+          const today = getDate();
+          await dbService.collection("userHistory").add({
+            creatorId: userObj.uid,
+            createdAt: Date.now(),
+            createdDay: today,
+            whatDid: "상품 구매",
+          });
+        } else {
+        }
       }
     } else {
       alert("포인트가 부족합니다.");
@@ -90,7 +111,7 @@ const StoreModal = ({ userObj }) => {
                 width="800px"
                 height="500px"
                 src={itemObj[pos_].attachmentUrl}
-              ></img>
+              />
             </div>
             <div className="storeModal-2">
               <div>

@@ -57,8 +57,13 @@
   margin: 0 !important;
 }
 
-.writeTip-form input:nth-child(2) {
+.writeTip-form textarea {
+  width: 98%;
   height: 15vh;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+  resize: none;
 }
 
 .writeTip-img-container {

@@ -26,6 +26,10 @@
   text-decoration: none;
 }
 
+.storeModal-ul li a:active {
+  color: darkorange;
+}
+
 .storeModal-container img {
   object-fit: contain;
 }

@@ -130,3 +130,9 @@ body {
 .mission-no {
   color: lightslategrey;
 }
+
+.mission-Container > img {
+  position: fixed !important;
+  z-index: -1;
+  top: -20px;
+}

@@ -3,6 +3,7 @@ import { dbService, storageService } from "fbase";
 import DisplayMission from "components/DisplayMissions";
 import CheckingMission from "components/DisplayCheckingMissions";
 import "../css/mission-style.css";
+import back from "../sourceImg/subTab-background.svg";
 
 const Mission = ({ userObj }) => {
   let UserMissionList = useState(""); // 유저 별 미션 코드 번호
@@ -190,7 +191,7 @@ const Mission = ({ userObj }) => {
         whatDid: "미션 변경",
       });
     } else {
-      alert("리롤권이 없습니다");
+      alert("미션 바꾸기 횟수를 모두 소모하였습니다");
     }
   };
 
@@ -252,6 +253,8 @@ const Mission = ({ userObj }) => {
           )}
           <hr />
         </div>
+
+        <img src={back} />
       </div>
     </>
   );

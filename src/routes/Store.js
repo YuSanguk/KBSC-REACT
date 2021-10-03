@@ -3,6 +3,7 @@ import { dbService } from "fbase";
 import { Link } from "react-router-dom";
 import Items from "components/StoreItems";
 import "../css/store-style.css";
+import back from "../sourceImg/subTab-background.svg";
 
 const Store = ({ userObj }) => {
   const [items, setItems] = useState([]);
@@ -85,6 +86,7 @@ const Store = ({ userObj }) => {
         ))}
         <hr />
       </ul>
+      <img src={back} />
     </div>
   );
 };

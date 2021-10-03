@@ -2,6 +2,7 @@ import { dbService } from "fbase";
 import React, { useState, useEffect } from "react";
 import UserHistory from "./DisplayUserHistory";
 import "../css/userHistory-style.css";
+import back from "../sourceImg/subTab-background.svg";
 
 const Profile = ({ userObj }) => {
   const [userHistory, setUserHistory] = useState([]);
@@ -33,6 +34,7 @@ const Profile = ({ userObj }) => {
         ))}
         <hr />
       </ul>
+      <img src={back} />
     </div>
   );
 };
