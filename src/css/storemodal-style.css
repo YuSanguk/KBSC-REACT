@@ -60,11 +60,14 @@
 
 .storeModal-2 div {
   width: 50%;
-  transform: translateY(-30vh) translateX(5vw);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6vh;
+  transform: translateY(-25vh) translateX(5vw);
 }
 
 .storeModal-2 p {
-  width: 70%;
+  width: 120%;
   margin: 0 !important;
 }
 

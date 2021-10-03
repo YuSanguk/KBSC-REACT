@@ -84,7 +84,7 @@ const Landing = () => {
             <li className="landing-1-video">
               {mode ? (
                 <>
-                  <video preload="true" loop autoPlay>
+                  <video preload="true" loop autoPlay="autoplay" muted="muted">
                     <source src={Video1} type="video/mp4" />
                     good
                   </video>
