@@ -149,7 +149,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: url(../sourceImg/cursor.png), pointer;
+  cursor: pointer;
 }
 
 .landing-nav li:nth-child(2) a {
