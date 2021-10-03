@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/KBSC-REACT/static/css/main.eab61a15.chunk.css",
-    "main.js": "/KBSC-REACT/static/js/main.23d6e2cd.chunk.js",
-    "main.js.map": "/KBSC-REACT/static/js/main.23d6e2cd.chunk.js.map",
+    "main.js": "/KBSC-REACT/static/js/main.79189f86.chunk.js",
+    "main.js.map": "/KBSC-REACT/static/js/main.79189f86.chunk.js.map",
     "runtime-main.js": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js",
     "runtime-main.js.map": "/KBSC-REACT/static/js/runtime-main.0a44b0e5.js.map",
     "static/js/2.3672cece.chunk.js": "/KBSC-REACT/static/js/2.3672cece.chunk.js",
@@ -14,6 +14,7 @@
     "static/media/InfoVideo.543e2f2e.mp4": "/KBSC-REACT/static/media/InfoVideo.543e2f2e.mp4",
     "static/media/landing-style.css": "/KBSC-REACT/static/media/Landing-4.bd8e90fb.png",
     "static/media/home-style.css": "/KBSC-REACT/static/media/main-background-img.b73ad35f.jpg",
+    "static/media/QR-ZIGUZAGU.287f4e39.png": "/KBSC-REACT/static/media/QR-ZIGUZAGU.287f4e39.png",
     "static/media/login.938b6670.webp": "/KBSC-REACT/static/media/login.938b6670.webp",
     "static/media/main-i.8c4df54e.webp": "/KBSC-REACT/static/media/main-i.8c4df54e.webp",
     "static/media/subTab-background.16b48a60.svg": "/KBSC-REACT/static/media/subTab-background.16b48a60.svg"
@@ -22,6 +23,6 @@
     "static/js/runtime-main.0a44b0e5.js",
     "static/js/2.3672cece.chunk.js",
     "static/css/main.eab61a15.chunk.css",
-    "static/js/main.23d6e2cd.chunk.js"
+    "static/js/main.79189f86.chunk.js"
   ]
 }
