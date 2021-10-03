@@ -43,6 +43,10 @@
   font-style: normal;
 }
 
+.modal-container p {
+  width: 70%;
+}
+
 .modal-container img {
   transform: translateY(2vh);
   object-fit: contain;
